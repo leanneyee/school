@@ -104,6 +104,25 @@
   })
 %}
 
+{% set actions_container =
+  html_cva(
+    base: ['flex flex-col gap-8 mt-8'],
+    variants: {
+      actionsAlign: {
+        left: 'items-start',
+        center: 'items-center',
+        right: 'items-end'
+      }
+    }
+  )
+%}
+
+{% set actions_container_classes =
+  actions_container.apply({
+    actionsAlign: text_align|default('center')
+  })
+%}
+
 <div class="{{ tile_classes }}">
   <div class="{{ tile_container_classes }}">
     <div class="{{ icon_container_classes }}">
@@ -145,7 +164,7 @@
       {% endif %}
 
       {% if actions is not empty or canvas_empty_slot %}
-        <div class="flex flex-col gap-8 mt-8">
+        <div class="{{ actions_container_classes }}">
           {{ actions }}
         </div>
       {% endif %}
