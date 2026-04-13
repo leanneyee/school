@@ -1,0 +1,15 @@
+name: Kura
+type: theme
+'base theme': false
+libraries:
+  - kura/global
+logo: logo-dark.svg
+description: 'A site template for a school website, customized from Mercury.'
+core_version_requirement: ^11
+generator: 'mercury:1.0.3'
+regions:
+  content: Content
+  header: Header
+  footer: Footer
+dependencies:
+  - 'cva:cva'
