@@ -49,20 +49,7 @@ props:
     icon:
       type: string
       title: Icon
-      enum:
-        - arrow-right
-        - arrow-left
-        - caret-right
-        - caret-left
-        - download
-        - user-plus
-      meta:enum:
-        arrow-right: Arrow right
-        arrow-left: Arrow left
-        caret-right: Caret right
-        caret-left: Caret left
-        download: Download
-        user-plus: User plus
+      description: 'The ID of an icon from the <a href="https://phosphoricons.com" target="_blank">Phosphor Icons</a> library.'
       examples:
         - arrow-right
     mobile_width:
