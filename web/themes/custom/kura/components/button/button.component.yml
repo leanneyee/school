@@ -1,6 +1,6 @@
 $schema: "https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json"
 name: Button
-group: Base
+group: Kura
 status: stable
 props:
   type: object
@@ -16,11 +16,13 @@ props:
         - secondary
         - primary-inverted
         - secondary-inverted
+        - ghost
       meta:enum:
         primary: Primary
-        secondary: Secondary
+        secondary: Secondary (accent)
         primary-inverted: Primary inverted
-        secondary-inverted: Secondary inverted
+        secondary-inverted: Secondary inverted (outline)
+        ghost: Ghost
       examples:
         - primary
     label:
