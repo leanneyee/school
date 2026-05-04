@@ -6,8 +6,6 @@ props:
   type: object
   required:
     - tagline_line1
-    - tagline_line2
-    - tagline_line3
   properties:
     hero_image:
       $ref: json-schema-definitions://canvas.module/image
