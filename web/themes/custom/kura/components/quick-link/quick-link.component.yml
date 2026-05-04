@@ -1,0 +1,36 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Quick Link
+description: A single icon link for the hero quick links bar. Drop multiple into the hero's quick_links slot.
+group: Kura
+props:
+  type: object
+  required:
+    - label
+    - url
+  properties:
+    label:
+      type: string
+      title: Label
+      examples:
+        - Enrol
+        - Report Absence
+        - Newsletter
+        - Calendar
+    url:
+      type: string
+      title: URL
+      format: uri-reference
+      examples:
+        - /enrolment
+        - /contact
+        - /school-life/newsletters
+        - /school-life/events
+    icon:
+      type: string
+      title: Icon
+      description: Phosphor icon ID. See https://phosphoricons.com
+      examples:
+        - file-text
+        - phone-call
+        - book-open
+        - calendar

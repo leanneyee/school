@@ -5,7 +5,7 @@ group: Kura
 props:
   type: object
   required:
-    - tagline_line1
+    - heading
   properties:
     hero_image:
       $ref: json-schema-definitions://canvas.module/image
@@ -16,6 +16,24 @@ props:
           alt: Wellington Primary students playing on the school field
           width: 1920
           height: 1280
+    heading:
+      type: string
+      title: Page heading (h1)
+      description: >
+        The semantic page heading — always rendered as an <h1>.
+        On the homepage set heading_hidden to true so the tagline provides
+        the visual treatment while this text remains accessible to screen readers.
+        On interior pages leave heading_hidden false and omit the tagline props.
+      examples:
+        - Wellington Primary School
+        - About Our School
+    heading_hidden:
+      type: boolean
+      title: Hide heading visually
+      description: >
+        When true the heading is sr-only and the tagline props provide the
+        visual heading. Use on the homepage. Default false.
+      default: false
     eyebrow:
       type: string
       title: Eyebrow text
@@ -23,17 +41,20 @@ props:
         - Te Whanganui-a-Tara · Established 1924
     tagline_line1:
       type: string
-      title: Tagline line 1
+      title: Decorative tagline — line 1
+      description: Only used when heading_hidden is true.
       examples:
         - Learn.
     tagline_line2:
       type: string
-      title: Tagline line 2 (accent colour)
+      title: Decorative tagline — line 2 (accent colour)
+      description: Only used when heading_hidden is true.
       examples:
         - Belong.
     tagline_line3:
       type: string
-      title: Tagline line 3
+      title: Decorative tagline — line 3
+      description: Only used when heading_hidden is true.
       examples:
         - Thrive.
     subtitle:
@@ -48,4 +69,4 @@ slots:
     description: CTA buttons rendered below the hero subtitle (e.g. Enrol Now).
   quick_links:
     title: Quick links bar
-    description: Rendered quick links component, inserted into the bar below the hero content.
+    description: Drop one kura:quick-link component per link. Works best with 4 items; layout supports up to 4 columns.

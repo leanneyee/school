@@ -1,31 +1,29 @@
 {#
 /**
  * @file hero.twig
- * Hero section with full-bleed image, tagline, action slot and quick links slot.
  *
- * hero_image follows the canvas.module/image schema: { src, alt, width, height }.
- * canvas:image handles file_url() conversion and srcset generation automatically.
- * The wrapper div handles absolute positioning; class on canvas:image handles
- * object-fit and opacity — matching the Mercury hero-billboard pattern.
+ * Heading strategy
+ * ----------------
+ * `heading` is ALWAYS an <h1>. Whether it is visible or sr-only is controlled
+ * by `heading_hidden`.
  *
- * Usage example in node--home-page.html.twig (props populated via preprocess):
- * {% include 'kura:hero' with {
- *   hero_image: {
- *     src: node.field_hero_image.entity.field_media_image.entity.uri.value,
- *     alt: node.field_hero_image.entity.field_media_image.alt,
- *     width: node.field_hero_image.entity.field_media_image.width,
- *     height: node.field_hero_image.entity.field_media_image.height,
- *   },
- *   eyebrow: 'Te Whanganui-a-Tara · Established 1924',
- *   tagline_line1: 'Learn.',
- *   tagline_line2: 'Belong.',
- *   tagline_line3: 'Thrive.',
- *   subtitle: 'A vibrant primary school where every child is known, valued and inspired.',
- * } only %}
+ * With heading_hidden true, the tagline props provide the visual heading and
+ * the heading text is sr-only. Use this on the homepage where the tagline is
+ * the decorative treatment.
  *
- * Or build hero_image in kura.theme with kura_preprocess_component__hero().
+ * With heading_hidden false (or omitted), the heading renders visually as the
+ * h1. The tagline props are ignored. Use this on interior pages.
+ *
+ * The tagline props are always aria-hidden — decorative only, never the
+ * semantic heading.
+ *
+ * The quick_links slot accepts one or more kura:quick-link components.
+ * Canvas can drop individual quick-link instances into this slot.
  */
 #}
+
+{% set is_heading_hidden = heading_hidden|default(false) %}
+{% set has_tagline = tagline_line1 is not empty %}
 
 <section class="relative isolate overflow-hidden bg-(--brand-deep)">
 
@@ -52,11 +50,18 @@
             {{ eyebrow }}
           </p>
         {% endif %}
-        <h1 class="mt-5 max-w-4xl font-bold leading-[0.95] text-white text-5xl sm:text-7xl lg:text-8xl">
-          {{ tagline_line1 }}<br>
-          <span class="text-(--brand-sun)">{{ tagline_line2 }}</span><br>
-          <span class="text-white">{{ tagline_line3 }}</span>
+        {# Semantic h1 — always present, visually hidden when tagline carries the display #}
+        <h1 class="{{ is_heading_hidden ? 'sr-only' : 'mt-5 max-w-4xl font-bold leading-[0.95] text-white text-5xl sm:text-7xl lg:text-8xl' }}">
+          {{ heading }}
         </h1>
+        {# Decorative tagline — visual treatment only, never heard by screen readers #}
+        {% if has_tagline and is_heading_hidden %}
+          <p class="mt-5 max-w-4xl font-bold leading-[0.95] text-white text-5xl sm:text-7xl lg:text-8xl">
+            {{ tagline_line1 }}<br>
+            {% if tagline_line2 %}<span class="text-(--brand-sun)">{{ tagline_line2 }}</span><br>{% endif %}
+            {% if tagline_line3 %}<span class="text-white">{{ tagline_line3 }}</span>{% endif %}
+          </p>
+        {% endif %}
         {% if subtitle %}
           <p class="mt-8 max-w-lg text-lg text-white/85">{{ subtitle }}</p>
         {% endif %}
@@ -77,9 +82,9 @@
     </div>
 
     {% if quick_links %}
-      <div class="mt-20 border-t border-white/15">
+      <nav class="hero-quick-links mt-20 grid grid-cols-2 border-t border-white/15 sm:grid-cols-4">
         {{ quick_links }}
-      </div>
+      </nav>
     {% endif %}
   </div>
 </section>
