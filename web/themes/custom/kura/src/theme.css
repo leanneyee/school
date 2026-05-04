@@ -13,6 +13,8 @@
   --foreground: oklch(0.13 0.043 265.132);
   --card: oklch(0.967 0.003 264.542);
   --card-foreground: oklch(0.21 0.032 264.665);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.05 250);
   --primary: oklch(0.547 0.246 262.866);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.9219 0 0);
@@ -25,6 +27,7 @@
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.872 0.009 258.338);
   --input: oklch(0.872 0.009 258.338);
+  --ring: oklch(0.45 0.13 255);
   --font-sans: "Outfit", "Helvetica Neue", Arial, Helvetica, sans-serif;
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: "Fira Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
@@ -43,8 +46,17 @@
   --shadow-lg: 0 1px 3px 1px hsl(0 0% 0% / 0.1), 0 8px 10px -2px hsl(0 0% 0% / 0.1);
   --shadow-xl: 0 1px 3px 1px hsl(0 0% 0% / 0.1), 0 12px 14px -3px hsl(0 0% 0% / 0.1);
   --shadow-2xl: 0 1px 3px 1px hsl(0 0% 0% / 0.1), 0 16px 18px -3px hsl(0 0% 0% / 0.1);
+  /* Custom shadow */
+  --shadow-soft: 0 10px 30px -12px oklch(0.32 0.12 245 / 0.25);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
+
+  /* Brand tokens */
+  --brand-deep: oklch(0.28 0.12 258);
+  --brand-sea: oklch(0.45 0.14 225);
+  --brand-sun: oklch(0.78 0.13 80);
+  --brand-leaf: oklch(0.55 0.13 150);
+  --brand-cream: oklch(0.97 0.025 90);
 
   /* Set navbar height for hero billboard overlay */
   --navbar-height: calc(var(--spacing) * 15);

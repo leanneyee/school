@@ -1,0 +1,53 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Hero
+description: Full-bleed hero section with headline, tagline, CTA buttons and quick links bar.
+group: Kura
+props:
+  type: object
+  required:
+    - tagline_line1
+    - tagline_line2
+    - tagline_line3
+  properties:
+    hero_image:
+      $ref: json-schema-definitions://canvas.module/image
+      title: Hero background image
+      type: object
+      examples:
+        - src: assets/hero-school.jpg
+          alt: Wellington Primary students playing on the school field
+          width: 1920
+          height: 1280
+    eyebrow:
+      type: string
+      title: Eyebrow text
+      examples:
+        - Te Whanganui-a-Tara · Established 1924
+    tagline_line1:
+      type: string
+      title: Tagline line 1
+      examples:
+        - Learn.
+    tagline_line2:
+      type: string
+      title: Tagline line 2 (accent colour)
+      examples:
+        - Belong.
+    tagline_line3:
+      type: string
+      title: Tagline line 3
+      examples:
+        - Thrive.
+    subtitle:
+      type: string
+      title: Subtitle paragraph
+    caption:
+      type: string
+      title: Image caption (desktop only, shown bottom-right)
+slots:
+  hero_actions:
+    title: Hero actions
+    description: CTA buttons rendered below the hero subtitle (e.g. Enrol Now).
+  quick_links:
+    title: Quick links bar
+    description: Rendered quick links component, inserted into the bar below the hero content.

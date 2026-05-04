@@ -1,0 +1,85 @@
+{#
+/**
+ * @file hero.twig
+ * Hero section with full-bleed image, tagline, action slot and quick links slot.
+ *
+ * hero_image follows the canvas.module/image schema: { src, alt, width, height }.
+ * canvas:image handles file_url() conversion and srcset generation automatically.
+ * The wrapper div handles absolute positioning; class on canvas:image handles
+ * object-fit and opacity — matching the Mercury hero-billboard pattern.
+ *
+ * Usage example in node--home-page.html.twig (props populated via preprocess):
+ * {% include 'kura:hero' with {
+ *   hero_image: {
+ *     src: node.field_hero_image.entity.field_media_image.entity.uri.value,
+ *     alt: node.field_hero_image.entity.field_media_image.alt,
+ *     width: node.field_hero_image.entity.field_media_image.width,
+ *     height: node.field_hero_image.entity.field_media_image.height,
+ *   },
+ *   eyebrow: 'Te Whanganui-a-Tara · Established 1924',
+ *   tagline_line1: 'Learn.',
+ *   tagline_line2: 'Belong.',
+ *   tagline_line3: 'Thrive.',
+ *   subtitle: 'A vibrant primary school where every child is known, valued and inspired.',
+ * } only %}
+ *
+ * Or build hero_image in kura.theme with kura_preprocess_component__hero().
+ */
+#}
+
+<section class="relative isolate overflow-hidden bg-(--brand-deep)">
+
+  {% if hero_image.src is not empty %}
+    <div class="absolute inset-0 -z-10 h-full w-full">
+      {% include 'canvas:image' ignore missing with {
+        src: hero_image.src,
+        alt: hero_image.alt,
+        width: hero_image.width,
+        height: hero_image.height,
+        loading: 'eager',
+        class: 'h-full w-full object-cover object-center opacity-70',
+      } only %}
+    </div>
+  {% endif %}
+
+  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-(--brand-deep)/90 via-(--brand-deep)/60 to-transparent"></div>
+
+  <div class="mx-auto max-w-7xl px-4 pt-24 pb-0 sm:px-6 sm:pt-32 lg:pt-40">
+    <div class="grid gap-12 lg:grid-cols-12 lg:items-end">
+      <div class="lg:col-span-8">
+        {% if eyebrow %}
+          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
+            {{ eyebrow }}
+          </p>
+        {% endif %}
+        <h1 class="mt-5 max-w-4xl font-bold leading-[0.95] text-white text-5xl sm:text-7xl lg:text-8xl">
+          {{ tagline_line1 }}<br>
+          <span class="text-(--brand-sun)">{{ tagline_line2 }}</span><br>
+          <span class="text-white">{{ tagline_line3 }}</span>
+        </h1>
+        {% if subtitle %}
+          <p class="mt-8 max-w-lg text-lg text-white/85">{{ subtitle }}</p>
+        {% endif %}
+        {% if hero_actions %}
+          <div class="mt-10 flex flex-wrap items-center gap-6">
+            {{ hero_actions }}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if caption %}
+        <aside class="lg:col-span-4 hidden lg:block">
+          <figcaption class="border-l-2 border-(--brand-sun) bg-white/5 px-5 py-3 text-xs italic text-white/75 backdrop-blur-sm">
+            {{ caption }}
+          </figcaption>
+        </aside>
+      {% endif %}
+    </div>
+
+    {% if quick_links %}
+      <div class="mt-20 border-t border-white/15">
+        {{ quick_links }}
+      </div>
+    {% endif %}
+  </div>
+</section>
