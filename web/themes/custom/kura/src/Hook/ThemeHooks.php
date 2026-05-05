@@ -48,6 +48,32 @@ final class ThemeHooks {
   }
 
   /**
+   * Implements hook_preprocess_block().
+   *
+   * Sets site_logo, site_name, site_slogan template variables for
+   * kura_branding_block, mirroring what core does for system_branding_block.
+   */
+  #[Hook('preprocess_block')]
+  public function preprocessBlock(array &$variables): void {
+    if (($variables['elements']['#plugin_id'] ?? '') !== 'kura_branding_block') {
+      return;
+    }
+    $content = $variables['content'];
+    $variables['site_logo'] = '';
+    if (!empty($content['site_logo']['#access']) && !empty($content['site_logo']['#uri'])) {
+      $variables['site_logo'] = $content['site_logo']['#uri'];
+    }
+    $variables['site_name'] = '';
+    if (!empty($content['site_name']['#access']) && !empty($content['site_name']['#markup'])) {
+      $variables['site_name'] = $content['site_name']['#markup'];
+    }
+    $variables['site_slogan'] = '';
+    if (!empty($content['site_slogan']['#access']) && !empty($content['site_slogan']['#markup'])) {
+      $variables['site_slogan'] = $content['site_slogan']['#markup'];
+    }
+  }
+
+  /**
    * Implements hook_element_info_alter().
    */
   #[Hook('element_info_alter')]

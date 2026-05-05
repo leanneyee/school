@@ -2,15 +2,12 @@
 {#
 /**
  * @file
- * Theme override for a branding block.
- *
- * Each branding element variable (logo, name, slogan) is only available if
- * enabled in the block configuration.
+ * Template for the Kura branding block (kura_branding_block plugin).
  *
  * Available variables:
- * - site_logo: Logo for site as defined in Appearance or theme settings.
- * - site_name: Name for site as defined in Site information settings.
- * - site_slogan: Slogan for site as defined in Site information settings.
+ * - site_logo: URI of the dark or light logo SVG, set by ThemeHooks::preprocessBlock().
+ * - site_name: Site name from system configuration.
+ * - site_slogan: Site slogan from system configuration.
  */
 #}
 

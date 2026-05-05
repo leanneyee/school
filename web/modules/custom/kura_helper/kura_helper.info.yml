@@ -1,0 +1,8 @@
+name: Kura Helper
+type: module
+description: Site-specific block plugins and functional extensions for the Kura theme.
+package: Custom
+core_version_requirement: ^11
+dependencies:
+  - drupal:block
+  - drupal:system

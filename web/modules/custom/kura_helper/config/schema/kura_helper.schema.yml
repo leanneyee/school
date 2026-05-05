@@ -1,0 +1,18 @@
+block.settings.kura_branding_block:
+  type: block_settings
+  label: 'Kura branding block'
+  constraints:
+    FullyValidatable: ~
+  mapping:
+    use_site_logo:
+      type: boolean
+      label: 'Use site logo'
+    use_site_name:
+      type: boolean
+      label: 'Use site name'
+    use_site_slogan:
+      type: boolean
+      label: 'Use site slogan'
+    logo_variant:
+      type: string
+      label: 'Logo variant'

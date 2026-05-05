@@ -13,3 +13,4 @@ regions:
   footer: Footer
 dependencies:
   - 'cva:cva'
+  - 'kura_helper:kura_helper'
