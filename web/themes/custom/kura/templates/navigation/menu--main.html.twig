@@ -19,7 +19,7 @@
  */
 #}
 
-{% set classes = 'flex justify-start relative' %}
+{% set classes = 'md:flex md:justify-start relative' %}
 {% set attributes = attributes ? attributes.addClass(classes) : ' class="' ~ classes ~ '"' %}
 
 <nav {{ attributes }} aria-label="{{ menu_label }}">
@@ -35,9 +35,10 @@
       {% set item_classes =
         [
           item.in_active_trail ? 'bg-muted/50' : '',
-          'flex flex-wrap justify-between md:flex-nowrap',
+          'group',
+          'md:flex md:justify-between',
           'md:w-auto md:relative md:max-w-[375px]',
-          'text-base font-medium rounded-md'
+          'text-sm font-medium rounded-md'
         ]|filter(c => c is not empty)
       %}
 
@@ -57,6 +58,55 @@
           >
             {{ title }}
           </a>
+        {% endif %}
+
+        {% if item.below %}
+          {# Mobile: always-visible indented list. Desktop: hover dropdown.
+             pt-3 provides a hover bridge so the cursor can travel from
+             the trigger to the panel without the menu dismissing. #}
+          <ul class="
+            list-none p-0
+            ml-3 border-l border-border pl-3
+            md:ml-0 md:pl-0 md:border-0
+            md:absolute md:left-0 md:top-full md:z-50
+            md:pt-3 md:transition
+            md:invisible md:opacity-0
+            md:group-hover:visible md:group-hover:opacity-100
+          ">
+
+            {# Desktop dropdown panel #}
+            <li class="max-md:hidden md:block">
+              <div class="min-w-56 border-t-2 border-primary bg-popover py-2 shadow-(--shadow-soft)">
+                <ul class="list-none p-0">
+                  {% for child in item.below %}
+                    {% set child_url %}{{- child.url -}}{% endset %}
+                    <li>
+                      <a
+                        href="{{ child_url }}"
+                        class="block px-4 py-2 text-sm text-popover-foreground hover:bg-muted hover:text-foreground{{ child.in_active_trail ? ' text-primary' : '' }}"
+                      >
+                        {{ child.title }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </li>
+
+            {# Mobile sub-items — flat list, always visible in mobile overlay #}
+            {% for child in item.below %}
+              {% set child_url %}{{- child.url -}}{% endset %}
+              <li class="md:hidden">
+                <a
+                  href="{{ child_url }}"
+                  class="block rounded-md px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground{{ child.in_active_trail ? ' text-primary' : '' }}"
+                >
+                  {{ child.title }}
+                </a>
+              </li>
+            {% endfor %}
+
+          </ul>
         {% endif %}
       </li>
     {% endfor %}

@@ -39,6 +39,8 @@ class Navbar extends ComponentInstance {
         window.addEventListener("scroll", scrollHandler);
       } else {
         window.removeEventListener("scroll", scrollHandler);
+        // Close the mobile menu when resizing to desktop width.
+        this.isOpen = false;
       }
     });
 
