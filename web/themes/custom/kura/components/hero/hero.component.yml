@@ -63,6 +63,9 @@ props:
     caption:
       type: string
       title: Image caption (desktop only, shown bottom-right)
+css:
+  component:
+    hero.css: {}
 slots:
   hero_actions:
     title: Hero actions

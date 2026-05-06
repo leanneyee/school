@@ -3,32 +3,32 @@
    Mobile (2 cols): every child gets a left border except the first in each row,
    and a top border except those in the first row.
    sm+ (4 cols): same logic but with 4 columns. */
-.quick-links > * {
+.hero-quick-links > * {
   border-color: oklch(1 0 0 / 15%);
   border-left-width: 1px;
   border-top-width: 1px;
 }
-.quick-links > *:nth-child(2n + 1) {
+.hero-quick-links > *:nth-child(2n + 1) {
   border-left-width: 0;
 }
-.quick-links > *:nth-child(-n + 2) {
+.hero-quick-links > *:nth-child(-n + 2) {
   border-top-width: 0;
 }
 @media (min-width: 640px) {
-  .quick-links > * {
+  .hero-quick-links > * {
     border-left-width: 1px;
     border-top-width: 1px;
   }
-  .quick-links > *:nth-child(2n + 1) {
+  .hero-quick-links > *:nth-child(2n + 1) {
     border-left-width: 1px;
   }
-  .quick-links > *:nth-child(-n + 2) {
+  .hero-quick-links > *:nth-child(-n + 2) {
     border-top-width: 1px;
   }
-  .quick-links > *:nth-child(4n + 1) {
+  .hero-quick-links > *:nth-child(4n + 1) {
     border-left-width: 0;
   }
-  .quick-links > *:nth-child(-n + 4) {
+  .hero-quick-links > *:nth-child(-n + 4) {
     border-top-width: 0;
   }
 }
