@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(vendor/bin/drush php:eval ' *)"
+      "Bash(vendor/bin/drush php:eval ' *)",
+      "WebFetch(domain:www.drupal.org)",
+      "WebSearch"
     ]
   }
 }
