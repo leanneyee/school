@@ -34,11 +34,6 @@ props:
         When true the heading is sr-only and the tagline props provide the
         visual heading. Use on the homepage. Default false.
       default: false
-    eyebrow:
-      type: string
-      title: Eyebrow text
-      examples:
-        - Te Whanganui-a-Tara · Established 1924
     tagline_line1:
       type: string
       title: Decorative tagline — line 1
@@ -57,6 +52,11 @@ props:
       description: Only used when heading_hidden is true.
       examples:
         - Thrive.
+    eyebrow:
+      type: string
+      title: Eyebrow text
+      examples:
+        - Te Whanganui-a-Tara · Established 1924
     subtitle:
       type: string
       title: Subtitle paragraph
