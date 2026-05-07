@@ -9,7 +9,8 @@
  */
 
 :root {
-  --background: oklch(0.99 0.005 240);
+  --background: oklch(1 0 0);
+  --header-bg: oklch(0.99 0.005 240);
   --foreground: oklch(0.22 0.05 250);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.22 0.05 250);
@@ -70,6 +71,7 @@
 
 .dark {
   --background: oklch(0.13 0.043 265.132);
+  --header-bg: oklch(0.13 0.043 265.132);
   --foreground: oklch(1 0 89.876);
   --card: oklch(0.208 0.042 266.359);
   --card-foreground: var(--foreground);

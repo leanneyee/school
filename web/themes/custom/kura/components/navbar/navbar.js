@@ -75,10 +75,6 @@ class Navbar extends ComponentInstance {
   get isOpen() {
     return this.#savedAsOpen;
   }
-
-  measureScrollTop() {
-    document.documentElement.style.setProperty("--navbar-scroll-top", `${window.scrollY}px`);
-  }
 }
 
 window.navbar = new ComponentType(Navbar, "navbar", ".navbar");

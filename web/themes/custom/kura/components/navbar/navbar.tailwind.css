@@ -1,5 +1,19 @@
 @layer components;
 
+/* Frosted glass header effect via pseudo-element so that backdrop-filter is
+   never on a real ancestor of .navbar--menu (position:fixed), which would
+   cause the mobile overlay to be positioned relative to the navbar instead
+   of the viewport. */
+
+.navbar-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: color-mix(in oklch, var(--header-bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+  z-index: -1;
+}
+
 /* Modal state - prevents body scroll when mobile menu is open */
 :root.navbar-modal-open {
   &,
