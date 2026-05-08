@@ -4,6 +4,8 @@ description: Split layout with a media slot alongside a labelled heading, highli
 group: Kura
 props:
   type: object
+  required:
+    - media_display
   properties:
     heading:
       type: string
@@ -28,7 +30,20 @@ props:
       title: Attribution
       examples:
         - Jane Smith, Principal
+    media_display:
+      type: string
+      title: Media display
+      enum:
+        - left
+        - right
+        - none
+      meta:enum:
+        left: Media left
+        right: Media right
+        none: No media
+      examples:
+        - left
 slots:
   media:
     title: Media
-    description: Image or media component displayed in the left column.
+    description: Image or media component.
