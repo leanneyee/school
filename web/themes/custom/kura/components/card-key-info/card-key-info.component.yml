@@ -1,0 +1,28 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Key Info card
+description: A minimal card displaying a label, a large prominent value, and optional supporting text. Designed for at-a-glance facts such as school hours or key statistics.
+group: Kura
+props:
+  type: object
+  required:
+    - heading
+    - value
+  properties:
+    heading:
+      type: string
+      title: Heading
+      description: Short label above the value, displayed in small caps.
+      examples:
+        - School opens
+    value:
+      type: string
+      title: Value
+      description: The prominent piece of information displayed large — a time, number, or short phrase.
+      examples:
+        - 8:55am
+    subtext:
+      type: string
+      title: Subtext
+      description: Optional supporting detail displayed below the value.
+      examples:
+        - Children should not be dropped off before this time, as they will be unsupervised.
