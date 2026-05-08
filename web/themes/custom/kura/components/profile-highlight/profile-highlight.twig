@@ -1,0 +1,47 @@
+{% set media_col = html_cva(base: [
+  '@container md:col-span-5 md:content-center lg:col-span-3',
+]) %}
+
+{% set highlight_classes = html_cva(base: [
+  'font-serif text-2xl leading-snug text-foreground sm:text-3xl',
+  '[&>p:first-child]:mt-0 [&>p:last-child]:mb-0',
+]) %}
+
+{% set body_classes = html_cva(base: [
+  'text-base leading-relaxed text-muted-foreground',
+  '[&>p:first-child]:mt-0 [&>p:last-child]:mb-0',
+]) %}
+
+<div class="mx-auto grid max-w-7xl gap-0 px-0 py-6 sm:px-6 sm:py-8 md:grid-cols-12">
+
+  {# Media column #}
+  <div class="{{ media_col.apply({}) }}">
+    {{ media }}
+  </div>
+
+  {# Content column #}
+  <div class="flex flex-col justify-center px-4 py-10 sm:px-10 md:col-span-7 lg:col-span-9">
+
+    {% if heading %}
+      <h2 class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-leaf">{{ heading }}</h2>
+    {% endif %}
+
+    {% if highlight_text %}
+      <p class="mt-6 {{ highlight_classes.apply({}) }}">
+        <span class="font-serif text-5xl leading-none text-brand-sun" aria-hidden="true">&ldquo;</span>
+          {{ highlight_text|raw }}
+      </p>
+    {% endif %}
+
+    {% if text %}
+      <div class="mt-6 {{ body_classes.apply({}) }}">
+        {{ text|raw }}
+      </div>
+    {% endif %}
+
+    {% if attribution %}
+      <p class="mt-6 text-sm font-semibold uppercase tracking-widest text-foreground/80">— {{ attribution }}</p>
+    {% endif %}
+
+  </div>
+</div>

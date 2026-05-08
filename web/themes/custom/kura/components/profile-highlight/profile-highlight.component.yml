@@ -1,0 +1,34 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Profile Highlight
+description: Split layout with a media slot alongside a labelled heading, highlighted quote, body text and attribution. Ideal for principal or staff introductions.
+group: Kura
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Heading
+      examples:
+        - Principal's Welcome
+    highlight_text:
+      type: string
+      title: Highlight text
+      pattern: '(.|\r?\n)*'
+      examples:
+        - At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive.
+    text:
+      type: string
+      title: Text
+      contentMediaType: text/html
+      x-formatting-context: block
+      examples:
+        - <p>Our dedicated staff work closely with whānau to create meaningful learning experiences that build confidence, curiosity, and a love of learning. We look forward to welcoming you into our school community.</p>
+    attribution:
+      type: string
+      title: Attribution
+      examples:
+        - Jane Smith, Principal
+slots:
+  media:
+    title: Media
+    description: Image or media component displayed in the left column.
