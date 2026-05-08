@@ -12,7 +12,7 @@
 #}
 
 {% block content %}
-  <a href="{{ home_url|default('/') }}" class="flex items-center gap-3" rel="home">
+  <a href="{{ home_url|default('/') }}" class="flex items-center gap-3 no-underline!" rel="home">
     {% block branding %}
       {% if site_logo %}
         <img class="h-10 w-10 shrink-0 object-contain" src="{{ site_logo }}" alt="" />
@@ -20,7 +20,7 @@
       {% if site_name or site_slogan %}
         <div class="flex flex-col leading-tight">
           {% if site_name %}
-            <span class="text-base font-semibold">{{ site_name }}</span>
+            <span class="text-base font-semibold{{ logo_variant == 'light' ? ' text-white' : '' }}">{{ site_name }}</span>
           {% endif %}
           {% if site_slogan %}
             <span class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{{ site_slogan }}</span>

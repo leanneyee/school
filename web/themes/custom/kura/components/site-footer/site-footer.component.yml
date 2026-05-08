@@ -1,0 +1,38 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Site Footer
+description: Multi-column dark footer with flexible column slots and a copyright bar.
+group: Kura
+props:
+  type: object
+  properties:
+    columns:
+      type: integer
+      title: Number of columns
+      enum: [2, 3, 4]
+      default: 4
+      examples:
+        - 4
+    copyright_name:
+      type: string
+      title: Copyright line name
+      description: Will appear after the &copy; <year> value.
+      examples:
+        - Example School
+    copyright_suffix:
+      type: string
+      title: Copyright suffix text
+      examples:
+        - All rights reserved.
+slots:
+  footer_first:
+    title: Column 1
+    description: First footer column. Typically branding and a short description.
+  footer_second:
+    title: Column 2
+    description: Second footer column. Typically a heading and navigation links.
+  footer_third:
+    title: Column 3
+    description: Third footer column. Only rendered when columns is 3 or 4.
+  footer_fourth:
+    title: Column 4
+    description: Fourth footer column. Only rendered when columns is 4.

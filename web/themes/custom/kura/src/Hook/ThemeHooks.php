@@ -71,6 +71,7 @@ final class ThemeHooks {
     if (!empty($content['site_slogan']['#access']) && !empty($content['site_slogan']['#markup'])) {
       $variables['site_slogan'] = $content['site_slogan']['#markup'];
     }
+    $variables['logo_variant'] = $variables['elements']['#configuration']['logo_variant'] ?? 'dark';
   }
 
   /**

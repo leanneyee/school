@@ -1,0 +1,10 @@
+{% set body_classes = html_cva(base: ['text-sm', 'text-white/70', '[&_a]:hover:text-brand-sun']) %}
+
+{% if heading %}
+  <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-white">{{ heading }}</h3>
+{% endif %}
+{% if content %}
+  <div class="{{ body_classes.apply({}) }}">
+    {{ content|raw }}
+  </div>
+{% endif %}
