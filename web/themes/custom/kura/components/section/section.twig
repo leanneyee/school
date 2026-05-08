@@ -51,6 +51,7 @@
         secondary: 'text-secondary-foreground',
         accent: 'text-accent-foreground',
         muted: 'text-muted-foreground',
+        'brand-cream': 'text-foreground',
         noColor: 'text-foreground'
       }
     }
@@ -82,6 +83,7 @@
         secondary: 'bg-secondary',
         accent: 'bg-accent',
         muted: 'bg-muted',
+        'brand-cream': 'bg-brand-cream',
         noColor: 'bg-none'
       },
       backgroundImage: {
@@ -132,6 +134,10 @@
         '50-50': '[&_.view-content]:md:grid-cols-2',
         '33-33-33': '[&_.view-content]:md:grid-cols-3',
         '25-25-25-25': '[&_.view-content]:sm:grid-cols-2 [&_.view-content]:lg:grid-cols-4'
+      },
+      divide: {
+        'none': '',
+        'columns': '!gap-0 divide-y divide-border md:divide-x md:divide-y-0'
       }
     },
     compound_variants: [
@@ -148,11 +154,12 @@
   grid.apply({
     columns: columns|default('100'),
     mobileColumns: mobile_columns|default('1'),
-    viewsColumns: views_columns|default('100')
+    viewsColumns: views_columns|default('100'),
+    divide: divide_columns ? 'columns' : 'none'
   })
 %}
 
-<section class="{{ section_classes }} cq-full">
+<section class="{{ section_classes }} cq-full{{ border_top ? ' border-t border-border' : '' }}{{ border_bottom ? ' border-b border-border' : '' }}">
   {# if there is background media #}
   {% if background_media is not empty and background_media.src is not empty %}
     {% block background_media_block %}

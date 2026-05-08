@@ -118,11 +118,32 @@ props:
         - secondary
         - accent
         - muted
+        - brand-cream
       meta:enum:
         primary: Primary
         secondary: Secondary
         accent: Accent
         muted: Muted
+        brand-cream: Cream
+    border_top:
+      type: boolean
+      title: Border top
+      default: false
+      examples:
+        - false
+    border_bottom:
+      type: boolean
+      title: Border bottom
+      default: false
+      examples:
+        - false
+    divide_columns:
+      type: boolean
+      title: Divide columns
+      description: Adds a hairline border between each grid column (removes gap).
+      default: false
+      examples:
+        - false
     background_media:
       $ref: json-schema-definitions://canvas.module/image
       title: Background image
@@ -131,16 +152,16 @@ props:
       type: boolean
       title: Show header region
       examples:
-        - true
+        - false
       default:
-        - true
+        - false
     section_footer:
       type: boolean
       title: Show footer region
       examples:
-        - true
+        - false
       default:
-        - true
+        - false
 
 slots:
   header_slot:
