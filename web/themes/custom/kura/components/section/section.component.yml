@@ -125,6 +125,12 @@ props:
         accent: Accent
         muted: Muted
         brand-cream: Cream
+    eyebrow:
+      type: string
+      title: Eyebrow
+      description: Small label displayed at the top of the header. ("Show header region" toggle must be enabled below for this to be visible.)
+      examples:
+        - Plan ahead
     border_top:
       type: boolean
       title: Border top
