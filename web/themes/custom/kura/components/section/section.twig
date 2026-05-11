@@ -137,7 +137,13 @@
       },
       divide: {
         'none': '',
-        'columns': '!gap-0 divide-y divide-border md:divide-x md:divide-y-0'
+        'columns': [
+          'overflow-hidden',
+          '[--dx:-0.5rem] [--dy:-1rem] @sm:[--dx:-0.75rem] @sm:[--dy:-1.5rem] @3xl:[--dx:-1rem]',
+          '[&>*]:relative',
+          '[&>*]:before:absolute [&>*]:before:inset-y-0 [&>*]:before:left-[var(--dx)] [&>*]:before:w-px [&>*]:before:bg-border',
+          '[&>*]:after:absolute [&>*]:after:inset-x-0 [&>*]:after:top-[var(--dy)] [&>*]:after:h-px [&>*]:after:bg-border',
+        ]
       }
     },
     compound_variants: [
@@ -189,7 +195,7 @@
           {% endblock %}
         {% endset %}
         {% if eyebrow or header_content|trim is not empty %}
-          <header class="mb-6 md:mb-8 xl:mb-10">
+          <header class="{{ border_top ? 'pt-6 md:pt-8 xl:pt-10 ' : '' }}mb-6 md:mb-8 xl:mb-10">
             {% if eyebrow %}
               <p class="{{ header_content|trim is not empty ? 'mb-3' : '' }} text-xs font-semibold uppercase tracking-[0.25em] text-brand-leaf">{{ eyebrow }}</p>
             {% endif %}
@@ -211,7 +217,7 @@
           {% endblock %}
         {% endset %}
         {% if footer_content|trim is not empty %}
-          <footer class="mt-6 md:mt-8 xl:mt-10">
+          <footer class="mt-6 md:mt-8 xl:mt-10{{ border_bottom ? ' pb-6 md:pb-8 xl:pb-10' : '' }}">
             {{ footer_content }}
           </footer>
         {% endif %}
