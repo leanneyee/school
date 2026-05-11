@@ -40,3 +40,8 @@ $RECYCLE.BIN/
 
 # Claude Code — local overrides contain user-specific paths and should not be shared
 .claude/settings.local.json
+
+# Database backups
+/backups/
+*.sql
+*.sql.gz
