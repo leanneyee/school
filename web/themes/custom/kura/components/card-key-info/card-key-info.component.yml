@@ -19,7 +19,7 @@ props:
       title: Value
       description: The prominent piece of information displayed large — a time, number, or short phrase.
       examples:
-        - 8:55am
+        - 8:15am
     subtext:
       type: string
       title: Subtext
