@@ -1,0 +1,37 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Term card
+description: Displays a single school term with its date range, optional notes, closures list, and holiday break. Designed to sit inside a 4-column grid. For cross-column row alignment, place the parent grid in a container with grid-rows-[auto_auto_auto_auto] and use grid-rows-subgrid on each card.
+group: Kura
+props:
+  type: object
+  required:
+    - name
+    - date_range
+  properties:
+    name:
+      type: string
+      title: Term name
+      examples:
+        - Term One
+    date_range:
+      type: string
+      title: Term date range
+      examples:
+        - Wed 4 Feb – Thu 2 Apr
+    notes:
+      type: string
+      title: Notes
+      description: 'Optional note displayed below the date range, e.g. "Teacher/Staff Only Days: Mon 2 & Tue 3 Feb"'
+    closed_dates:
+      type: string
+      title: School closed dates
+      description: One closure per line. Separate the date and reason with a pipe character, e.g. "Fri 6 Feb | Waitangi Day".
+      pattern: '(.|\r?\n)*'
+      examples:
+        - "Fri 6 Feb | Waitangi Day\nMon 23 Mar | Maths Curriculum Day"
+    holiday_break:
+      type: string
+      title: Holiday break
+      description: Date range of the holiday following this term. Leave empty for the final term.
+      examples:
+        - Fri 3 Apr – Sun 19 Apr

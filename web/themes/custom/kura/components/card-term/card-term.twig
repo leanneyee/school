@@ -1,0 +1,55 @@
+{#
+  grid/row-span-4/grid-rows-subgrid aligns the three content zones (header,
+  closures, holiday) across sibling term cards when the parent grid declares
+  grid-rows-[auto_auto_auto_auto]. Without that parent rule the card renders
+  correctly as a plain vertical stack.
+#}
+<div class="grid row-span-4 grid-rows-subgrid gap-y-0">
+
+  {# Zone 1: term name + date range + notes #}
+  <div class="pb-5">
+    <h3 class="text-xl font-bold text-foreground">{{ name }}</h3>
+    <p class="mt-2 mb-0 text-base font-semibold text-(--color-brand-sea)">
+      <time>{{ date_range }}</time>
+    </p>
+    {% if notes %}
+      <p class="mt-2 mb-0 text-xs text-muted-foreground">{{ notes }}</p>
+    {% endif %}
+  </div>
+
+  {# Zone 2: school closures
+     Each entry is "Date | Reason" — split on pipe and rendered as a
+     definition list with a two-column grid so dates and reasons align. #}
+  <div>
+    <p class="mb-0 text-xs font-semibold uppercase tracking-widest text-foreground">{{ "School closed"|t }}</p>
+    {% if closed_dates %}
+      <dl class="mt-3 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 text-sm text-foreground">
+        {% for entry in closed_dates|split("\n") %}
+          {% set line = entry|trim %}
+          {% if line %}
+            {% set parts = line|split('|') %}
+            {% if parts|length >= 2 %}
+              <dt class="flex items-center mb-0 whitespace-nowrap">
+                <time>{{ parts[0]|trim }}</time>
+              </dt>
+              <dd class="mb-0">{{ parts[1]|trim }}</dd>
+            {% else %}
+              <dt class="col-span-2 mb-0">{{ line }}</dt>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </dl>
+    {% endif %}
+  </div>
+
+  {# Zone 3: holiday break (empty div preserves subgrid row when absent) #}
+  <div>
+    {% if holiday_break %}
+      <div class="mt-6 border-t border-dashed border-border pt-4">
+        <p class="mb-0 text-xs font-semibold uppercase tracking-widest text-foreground">{{ "Holiday break"|t }}</p>
+        <p class="mt-1 mb-0 text-sm text-foreground"><time>{{ holiday_break }}</time></p>
+      </div>
+    {% endif %}
+  </div>
+
+</div>

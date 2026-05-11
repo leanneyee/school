@@ -3,7 +3,8 @@
     "allow": [
       "Bash(vendor/bin/drush php:eval ' *)",
       "WebFetch(domain:www.drupal.org)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(ddev drush php:eval ' *)"
     ]
   }
 }
