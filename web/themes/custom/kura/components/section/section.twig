@@ -47,12 +47,12 @@
         '64': 'pb-10 md:pb-13 xl:pb-16'
       },
       backgroundColor: {
-        primary: 'text-primary-foreground',
-        secondary: 'text-secondary-foreground',
-        accent: 'text-accent-foreground',
-        muted: 'text-muted-foreground',
-        'brand-cream': 'text-foreground',
-        noColor: 'text-foreground'
+        primary: 'text-primary-foreground [--eyebrow-color:var(--color-brand-sun)]',
+        secondary: 'text-secondary-foreground [--eyebrow-color:var(--color-brand-leaf)]',
+        accent: 'text-accent-foreground [--eyebrow-color:var(--color-brand-leaf)]',
+        muted: 'text-muted-foreground [--eyebrow-color:var(--color-brand-leaf)]',
+        'brand-cream': 'text-foreground [--eyebrow-color:var(--color-brand-leaf)]',
+        noColor: 'text-foreground [--eyebrow-color:var(--color-brand-leaf)]'
       }
     }
   )
@@ -195,9 +195,9 @@
           {% endblock %}
         {% endset %}
         {% if eyebrow or header_content|trim is not empty %}
-          <header class="{{ border_top ? 'pt-6 md:pt-8 xl:pt-10 ' : '' }}mb-6 md:mb-8 xl:mb-10">
+          <header class="{{ border_top or background_color ? 'pt-6 md:pt-8 xl:pt-10 ' : '' }}mb-6 md:mb-8 xl:mb-10">
             {% if eyebrow %}
-              <p class="{{ header_content|trim is not empty ? 'mb-3' : '' }} text-xs font-semibold uppercase tracking-[0.25em] text-brand-leaf">{{ eyebrow }}</p>
+              <p class="{{ header_content|trim is not empty ? 'mb-3' : '' }} text-xs font-semibold uppercase tracking-[0.25em] text-[var(--eyebrow-color,var(--color-brand-leaf))]">{{ eyebrow }}</p>
             {% endif %}
             {{ header_content }}
           </header>
@@ -217,7 +217,7 @@
           {% endblock %}
         {% endset %}
         {% if footer_content|trim is not empty %}
-          <footer class="mt-6 md:mt-8 xl:mt-10{{ border_bottom ? ' pb-6 md:pb-8 xl:pb-10' : '' }}">
+          <footer class="mt-6 md:mt-8 xl:mt-10{{ border_bottom or background_color ? ' pb-6 md:pb-8 xl:pb-10' : '' }}">
             {{ footer_content }}
           </footer>
         {% endif %}
