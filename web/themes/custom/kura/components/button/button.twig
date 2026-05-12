@@ -7,16 +7,16 @@
   html_cva(
     base: [
       'group inline-flex items-center justify-center transition duration-300 ease-in-out',
-      'rounded-full leading-tight font-semibold uppercase tracking-wider',
+      'font-semibold uppercase tracking-wider',
       'cursor-pointer no-underline outline-none hover:no-underline',
       'focus-visible:ring-ring/50 focus-visible:ring-[3px]',
       'disabled:pointer-events-none disabled:opacity-50'
     ],
     variants: {
       size: {
-        small:  'gap-1.5 px-4 py-2 text-xs',
-        medium: 'gap-2 px-6 py-3 text-sm',
-        large:  'gap-2 px-7 py-3.5 text-sm'
+        small:  'gap-1.5 text-xs',
+        medium: 'gap-2 text-sm',
+        large:  'gap-2 text-sm'
       },
       variant: {
         primary:
@@ -28,7 +28,11 @@
         'secondary-inverted':
           'border border-border bg-background text-foreground hover:bg-secondary',
         ghost:
-          'text-primary hover:underline'
+          'text-primary hover:underline',
+        link:
+          'text-primary hover:underline',
+        'link-inverted':
+          'text-white hover:text-(--brand-sun)'
       },
       width: {
         full: 'w-full sm:w-fit',
@@ -38,7 +42,24 @@
         first: 'flex-row',
         last:  'flex-row-reverse'
       }
-    }
+    },
+    compound_variants: [
+      {
+        variant: ['primary', 'secondary', 'primary-inverted', 'secondary-inverted', 'ghost'],
+        size: ['small'],
+        class: 'px-4 py-2 rounded-full leading-tight'
+      },
+      {
+        variant: ['primary', 'secondary', 'primary-inverted', 'secondary-inverted', 'ghost'],
+        size: ['medium'],
+        class: 'px-6 py-3 rounded-full leading-tight'
+      },
+      {
+        variant: ['primary', 'secondary', 'primary-inverted', 'secondary-inverted', 'ghost'],
+        size: ['large'],
+        class: 'px-7 py-3.5 rounded-full leading-tight'
+      }
+    ]
   )
 %}
 

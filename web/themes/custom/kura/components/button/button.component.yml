@@ -17,12 +17,16 @@ props:
         - primary-inverted
         - secondary-inverted
         - ghost
+        - link
+        - link-inverted
       meta:enum:
         primary: Primary
         secondary: Secondary (accent)
         primary-inverted: Primary inverted
         secondary-inverted: Secondary inverted (outline)
         ghost: Ghost
+        link: Link (light background)
+        link-inverted: Link (dark background)
       examples:
         - primary
     label:
