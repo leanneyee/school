@@ -46,7 +46,7 @@ props:
         heading-responsive-2xl: 2XL
         heading-responsive-xl: XL
       examples:
-        - heading-responsive-4xl
+        - heading-responsive-5xl
     text_color:
       type: string
       title: Text color
