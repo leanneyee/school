@@ -49,6 +49,12 @@ props:
         inverted: Inverted
       examples:
         - default
+    eyebrow_text:
+      type: string
+      title: Eyebrow
+      description: "Small label displayed above the heading. Shown in brand sun colour on Overlay cards."
+      examples:
+        - "Years 0–2"
     heading_text:
       type: string
       title: Heading
@@ -64,12 +70,6 @@ props:
       default: 3
       examples:
         - 3
-    eyebrow_text:
-      type: string
-      title: Eyebrow
-      description: "Small label displayed above the heading. Shown in brand sun colour on Overlay cards."
-      examples:
-        - "Years 0–2"
     url:
       type: string
       title: Link

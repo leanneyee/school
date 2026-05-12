@@ -4,7 +4,14 @@
 {% set is_text_centered = is_text_centered|default(false) ? 'yes' : 'no' %}
 {% set is_media_bg = card_style == 'media_bg' %}
 {% set h = 'h' ~ level|default(3) %}
-{% set eyebrow_color = (is_media_bg or card_background in ['primary', 'inverted']) ? 'text-(--brand-sun)' : 'text-(--brand-leaf)' %}
+{# Style-varying class strings — keeps the content section unified rather than duplicated. #}
+{% set heading_classes = is_media_bg
+  ? (eyebrow_text is not empty ? 'mt-1 ' : '') ~ 'text-2xl font-bold'
+  : 'text-xl font-semibold @sm:text-2xl @2xl:text-3xl' %}
+{% set text_classes = is_media_bg
+  ? 'mb-0 mt-2 text-sm text-white'
+  : 'mb-0 text-md @sm:text-lg @2xl:text-xl' %}
+{% set inner_classes = is_media_bg ? '' : '@container flex w-full flex-col gap-1 md:gap-2' %}
 
 {% set card =
   html_cva(
@@ -16,10 +23,6 @@
       orientation: {
         vertical: 'flex-col',
         horizontal: 'md:flex-row'
-      },
-      isTextCentered: {
-        yes: 'text-center',
-        no: 'text-left'
       },
       clickable: {
         yes: 'cursor-pointer',
@@ -45,10 +48,6 @@
         backgroundColor: ['noColor'],
         class: 'border border-secondary hover:border-secondary/80'
       },
-      {
-        style: ['framed', 'full'],
-        clickable: ['yes']
-      }
     ]
   )
 %}
@@ -78,6 +77,10 @@
         vertical: '',
         horizontal: 'md:flex-[0_1_50%]'
       },
+      isTextCentered: {
+        yes: 'text-center',
+        no: ''
+      },
       style: {
         framed: '',
         full: 'rounded-b p-4 lg:p-6',
@@ -89,11 +92,6 @@
         orientation: ['horizontal'],
         style: ['full'],
         class: 'p-4 lg:p-6'
-      },
-      {
-        orientation: ['horizontal'],
-        style: ['framed'],
-        class: ''
       },
       {
         orientation: ['vertical'],
@@ -126,7 +124,6 @@
   card.apply(
     {
       orientation: is_media_bg ? 'vertical' : card_orientation,
-      isTextCentered: is_text_centered,
       clickable: url is not empty ? 'yes' : 'no',
       style: card_style,
       backgroundColor: is_media_bg ? 'none' : card_background
@@ -149,7 +146,9 @@
           src: media.src,
           alt: media.alt,
           class: is_media_bg
-            ? 'object-cover w-full h-full opacity-85 transition group-hover:scale-[1.03] group-hover:opacity-100'
+            ? url is not empty
+              ? 'object-cover w-full h-full opacity-85 transition group-hover:scale-[1.03] group-hover:opacity-100'
+              : 'object-cover w-full h-full opacity-85'
             : url is not empty
               ? 'object-cover w-full h-full transition group-hover:scale-[1.03]'
               : 'object-cover w-full h-full',
@@ -169,33 +168,20 @@
     class="{{
     card_content.apply({
       orientation: is_media_bg ? 'vertical' : card_orientation,
+      isTextCentered: is_text_centered,
       style: card_style,
       backgroundColor: is_media_bg ? 'none' : card_background
     })
     }}"
   >
-    {% if is_media_bg %}
-
+    <div class="{{ inner_classes }}">
       {% if eyebrow_text is not empty %}
-        <p class="mb-0 text-xs font-semibold uppercase tracking-widest {{ eyebrow_color }}">{{ eyebrow_text }}</p>
+        <p class="mb-0 text-xs font-semibold uppercase tracking-widest text-brand-sun">{{ eyebrow_text }}</p>
       {% endif %}
-      <{{ h }} class="{{ eyebrow_text is not empty ? 'mt-1 ' : '' }}text-2xl font-bold">{{ card_link }}</{{ h }}>
+      <{{ h }} class="{{ heading_classes }}">{{ card_link }}</{{ h }}>
       {% if text is not empty %}
-        <p class="mb-0 mt-2 text-sm text-white">{{ text }}</p>
+        <p class="{{ text_classes }}">{{ text }}</p>
       {% endif %}
-
-    {% else %}
-
-      <div class="@container flex w-full flex-col gap-1 md:gap-2">
-        {% if eyebrow_text is not empty %}
-          <p class="mb-0 text-xs font-semibold uppercase tracking-widest {{ eyebrow_color }}">{{ eyebrow_text }}</p>
-        {% endif %}
-        <{{ h }} class="text-xl font-semibold @sm:text-2xl @2xl:text-3xl">{{ card_link }}</{{ h }}>
-        {% if text is not empty %}
-          <p class="mb-0 text-md @sm:text-lg @2xl:text-xl">{{ text }}</p>
-        {% endif %}
-      </div>
-
-    {% endif %}
+    </div>
   </div>
-</div>
+</article>
