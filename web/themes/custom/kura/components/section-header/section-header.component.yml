@@ -1,0 +1,18 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Section Header
+description: Eyebrow label, heading slot on the left and an optional CTA slot on the right. Uses container queries to switch from a stacked column to a side-by-side row with the CTA baseline-aligned to the bottom of the heading. Place in a Section component's header slot.
+group: Kura
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+      title: Eyebrow
+
+slots:
+  heading:
+    title: Heading
+    description: Heading component. Displays on the left.
+  cta:
+    title: CTA
+    description: Button or link. Displays inline with the heading at wider container sizes.
