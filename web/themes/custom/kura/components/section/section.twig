@@ -53,22 +53,26 @@
         muted: 'text-muted-foreground [--eyebrow-color:var(--color-brand-leaf)]',
         'brand-cream': 'text-foreground [--eyebrow-color:var(--color-brand-leaf)]',
         noColor: 'text-foreground [--eyebrow-color:var(--color-brand-leaf)]'
-      }
+      },
+      borderTop: {
+        yes: 'border-t border-border'
+      },
+      borderBottom: {
+        yes: 'border-b border-border'
+      },
     }
   )
 %}
-
-{% set has_bg = background_color is not empty %}
-{% set effective_pt = (has_bg and not border_top    and padding_block_start == '0') ? '64' : padding_block_start %}
-{% set effective_pb = (has_bg and not border_bottom and padding_block_end   == '0') ? '64' : padding_block_end %}
 
 {% set section_classes =
   section.apply({
     marginBlockStart: margin_block_start,
     marginBlockEnd: margin_block_end,
-    paddingBlockStart: effective_pt,
-    paddingBlockEnd: effective_pb,
-    backgroundColor: background_color|default('noColor')
+    paddingBlockStart: padding_block_start,
+    paddingBlockEnd: padding_block_end,
+    backgroundColor: background_color|default('noColor'),
+    borderTop: border_top ? 'yes' : 'no',
+    borderBottom: border_bottom ? 'yes' : 'no'
   })
 %}
 
@@ -169,7 +173,7 @@
   })
 %}
 
-<section class="{{ section_classes }} cq-full{{ border_top ? ' border-t border-border' : '' }}{{ border_bottom ? ' border-b border-border' : '' }}">
+<section class="{{ section_classes }} cq-full">
   {# if there is background media #}
   {% if background_media is not empty and background_media.src is not empty %}
     {% block background_media_block %}
@@ -199,7 +203,7 @@
           {% endblock %}
         {% endset %}
         {% if header_content|trim is not empty %}
-          <header class="{{ border_top ? 'pt-6 md:pt-8 xl:pt-10 ' : '' }}mb-6 md:mb-8 xl:mb-10">
+          <header class="mb-6 md:mb-8 xl:mb-10">
             {{ header_content }}
           </header>
         {% endif %}
@@ -218,7 +222,7 @@
           {% endblock %}
         {% endset %}
         {% if footer_content|trim is not empty %}
-          <footer class="mt-6 md:mt-8 xl:mt-10{{ border_bottom ? ' pb-6 md:pb-8 xl:pb-10' : '' }}">
+          <footer class="mt-6 md:mt-8 xl:mt-10">
             {{ footer_content }}
           </footer>
         {% endif %}
