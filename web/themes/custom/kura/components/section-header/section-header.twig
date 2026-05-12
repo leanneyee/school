@@ -3,13 +3,24 @@
   'text-[var(--eyebrow-color,var(--color-brand-leaf))]',
 ]) %}
 
-<div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+{% set wrapper = html_cva(
+  base: ['flex flex-col gap-6 lg:flex-row lg:justify-between'],
+  variants: {
+    ctaAlign: {
+      top:    'lg:items-start',
+      middle: 'lg:items-center',
+      bottom: 'lg:items-end'
+    }
+  }
+) %}
+
+<div class="{{ wrapper.apply({ ctaAlign: cta_align|default('bottom') }) }}">
 
   <div class="flex flex-col gap-3 flex-1 min-w-0">
     {% if eyebrow %}
       <p class="{{ eyebrow_classes.apply({}) }}">{{ eyebrow }}</p>
     {% endif %}
-    <div>{{ heading }}</div>
+    <div class="flex flex-col gap-y-1">{{ heading }}</div>
   </div>
 
   <div class="{{ cta is not empty ? 'shrink-0 lg:min-w-[10rem]' : 'hidden' }}">

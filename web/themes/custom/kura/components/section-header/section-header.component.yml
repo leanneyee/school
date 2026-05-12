@@ -4,7 +4,24 @@ description: Eyebrow label, heading slot on the left and an optional CTA slot on
 group: Kura
 props:
   type: object
+  required:
+    - cta_align
   properties:
+    cta_align:
+      type: string
+      title: CTA alignment
+      description: "Vertical alignment of the Call to Action relative to the heading at wider screen sizes. No effect when the Call to Action slot is empty."
+      enum:
+        - top
+        - middle
+        - bottom
+      meta:enum:
+        top: Top
+        middle: Middle
+        bottom: Bottom
+      default: bottom
+      examples:
+        - bottom
     eyebrow:
       type: string
       title: Eyebrow
@@ -14,5 +31,5 @@ slots:
     title: Heading
     description: Heading component. Displays on the left.
   cta:
-    title: CTA
+    title: Call to Action
     description: Button or link. Displays inline with the heading at wider container sizes.
