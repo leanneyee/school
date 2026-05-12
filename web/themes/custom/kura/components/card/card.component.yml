@@ -8,9 +8,35 @@ props:
     - orientation
     - style
   properties:
+    style:
+      type: string
+      title: Style
+      enum:
+        - framed
+        - full
+        - media_bg
+      meta:enum:
+        framed: Framed
+        full: Full width
+        media_bg: "Background image"
+      examples:
+        - framed
+    orientation:
+      type: string
+      title: Orientation
+      description: "Not applicable when Style is set to Background image."
+      enum:
+        - vertical
+        - horizontal
+      meta:enum:
+        vertical: Vertical
+        horizontal: Horizontal
+      examples:
+        - vertical
     background:
       type: string
       title: Background
+      description: "Not applicable when Style is set to Background image (always uses the brand deep colour)."
       enum:
         - default
         - accent
@@ -23,28 +49,6 @@ props:
         inverted: Inverted
       examples:
         - default
-    style:
-      type: string
-      title: Style
-      enum:
-        - framed
-        - full
-      meta:enum:
-        framed: Framed
-        full: Full width
-      examples:
-        - framed
-    orientation:
-      type: string
-      title: Orientation
-      enum:
-        - vertical
-        - horizontal
-      meta:enum:
-        vertical: Vertical
-        horizontal: Horizontal
-      examples:
-        - vertical
     heading_text:
       type: string
       title: Heading
@@ -60,6 +64,12 @@ props:
       default: 3
       examples:
         - 3
+    eyebrow_text:
+      type: string
+      title: Eyebrow
+      description: "Small label displayed above the heading. Shown in brand sun colour on Overlay cards."
+      examples:
+        - "Years 0–2"
     url:
       type: string
       title: Link

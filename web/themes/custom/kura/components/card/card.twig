@@ -2,11 +2,16 @@
 {% set card_style = style|default('framed') %}
 {% set card_background = background|default('noColor') %}
 {% set is_text_centered = is_text_centered|default(false) ? 'yes' : 'no' %}
-{% set is_clickable = url is not empty ? 'yes' : 'no' %}
+{% set is_media_bg = card_style == 'media_bg' %}
+{% set h = 'h' ~ level|default(3) %}
+{% set eyebrow_color = (is_media_bg or card_background in ['primary', 'inverted']) ? 'text-(--brand-sun)' : 'text-(--brand-leaf)' %}
 
 {% set card =
   html_cva(
-    base: ['group relative flex rounded-xl shadow-2xl transition duration-300 in-[.views-row]:h-full'],
+    base: [
+      'group relative flex rounded-xl shadow-2xl transition duration-300 in-[.views-row]:h-full',
+      'focus-within:ring-2 focus-within:ring-ring/50'
+    ],
     variants: {
       orientation: {
         vertical: 'flex-col',
@@ -17,19 +22,21 @@
         no: 'text-left'
       },
       clickable: {
-        yes: 'cursor-pointer hover:scale-103',
+        yes: 'cursor-pointer',
         no: ''
       },
       style: {
         framed: 'gap-4 p-4 lg:gap-4 lg:p-6',
-        full: ''
+        full: '',
+        media_bg: 'overflow-hidden rounded-2xl! bg-(--brand-deep) text-white'
       },
       backgroundColor: {
         default: 'bg-card text-card-foreground hover:bg-card/90 hover:text-card-foreground/90',
         accent: 'bg-accent text-accent-foreground hover:bg-accent/80 hover:text-accent-foreground/80',
         primary: 'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90',
         inverted: 'bg-foreground text-background hover:bg-foreground/90 hover:text-background/90',
-        noColor: 'shadow-none hover:text-foreground/90'
+        noColor: 'shadow-none',
+        none: ''
       }
     },
     compound_variants: [
@@ -37,6 +44,10 @@
         style: ['framed'],
         backgroundColor: ['noColor'],
         class: 'border border-secondary hover:border-secondary/80'
+      },
+      {
+        style: ['framed', 'full'],
+        clickable: ['yes']
       }
     ]
   )
@@ -44,15 +55,16 @@
 
 {% set card_media =
   html_cva(
-    base: 'aspect-video overflow-hidden',
+    base: 'overflow-hidden',
     variants: {
       orientation: {
         vertical: '',
         horizontal: 'md:aspect-auto md:flex-[0_1_50%]'
       },
       style: {
-        framed: 'rounded-lg',
-        full: 'rounded-xl'
+        framed: 'aspect-video rounded-lg',
+        full: 'aspect-video rounded-xl',
+        media_bg: 'aspect-[4/5] w-full'
       }
     }
   )
@@ -68,7 +80,8 @@
       },
       style: {
         framed: '',
-        full: 'rounded-b p-4 lg:p-6'
+        full: 'rounded-b p-4 lg:p-6',
+        media_bg: 'absolute inset-x-0 bottom-0 p-6'
       }
     },
     compound_variants: [
@@ -98,15 +111,25 @@
   )
 %}
 
-<div
+{# Build the link once; aria-label adds eyebrow context for screen reader link lists. #}
+{% set card_link %}
+  {% if url is not empty %}
+    <a href="{{ url }}" class="after:absolute after:inset-0 after:content-['']"
+       {% if eyebrow_text is not empty %}aria-label="{{ eyebrow_text }}: {{ heading_text }}"{% endif %}>{{ heading_text }}</a>
+  {% else %}
+    {{ heading_text }}
+  {% endif %}
+{% endset %}
+
+<article
   class="{{
   card.apply(
     {
-      orientation: card_orientation,
+      orientation: is_media_bg ? 'vertical' : card_orientation,
       isTextCentered: is_text_centered,
-      clickable: is_clickable,
+      clickable: url is not empty ? 'yes' : 'no',
       style: card_style,
-      backgroundColor: card_background
+      backgroundColor: is_media_bg ? 'none' : card_background
     },
     card_classes|default('')
   )
@@ -116,9 +139,8 @@
     <div
       class="{{
       card_media.apply({
-        orientation: card_orientation,
-        style: card_style,
-        backgroundColor: card_background
+        orientation: is_media_bg ? 'vertical' : card_orientation,
+        style: card_style
       })
       }}"
     >
@@ -126,35 +148,54 @@
         {% include 'canvas:image' ignore missing with {
           src: media.src,
           alt: media.alt,
-          class: 'object-cover w-full h-full',
+          class: is_media_bg
+            ? 'object-cover w-full h-full opacity-85 transition group-hover:scale-[1.03] group-hover:opacity-100'
+            : url is not empty
+              ? 'object-cover w-full h-full transition group-hover:scale-[1.03]'
+              : 'object-cover w-full h-full',
           width: media.width,
           height: media.height,
-          sizes: card_orientation == 'stacked' ? 'auto, 100vw' : '50vw'
+          sizes: card_orientation == 'horizontal' ? '50vw' : '100vw'
         } only %}
       {% endblock %}
     </div>
   {% endif %}
 
+  {% if is_media_bg %}
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+  {% endif %}
+
   <div
     class="{{
     card_content.apply({
-      orientation: card_orientation,
+      orientation: is_media_bg ? 'vertical' : card_orientation,
       style: card_style,
-      backgroundColor: card_background
+      backgroundColor: is_media_bg ? 'none' : card_background
     })
     }}"
   >
-    <div class="@container flex w-full flex-col gap-1 md:gap-2">
-      <h3 class="text-xl font-semibold @sm:text-2xl @2xl:text-3xl">
-        {% if is_clickable %}
-          <a href="{{ url }}" class="after:absolute after:inset-0 after:content-['']">{{ heading_text }}</a>
-        {% endif %}
-      </h3>
-      {% if text is not empty %}
-        <p class="mb-0 text-md @sm:text-lg @2xl:text-xl">
-          {{ text }}
-        </p>
+    {% if is_media_bg %}
+
+      {% if eyebrow_text is not empty %}
+        <p class="mb-0 text-xs font-semibold uppercase tracking-widest {{ eyebrow_color }}">{{ eyebrow_text }}</p>
       {% endif %}
-    </div>
+      <{{ h }} class="{{ eyebrow_text is not empty ? 'mt-1 ' : '' }}text-2xl font-bold">{{ card_link }}</{{ h }}>
+      {% if text is not empty %}
+        <p class="mb-0 mt-2 text-sm text-white">{{ text }}</p>
+      {% endif %}
+
+    {% else %}
+
+      <div class="@container flex w-full flex-col gap-1 md:gap-2">
+        {% if eyebrow_text is not empty %}
+          <p class="mb-0 text-xs font-semibold uppercase tracking-widest {{ eyebrow_color }}">{{ eyebrow_text }}</p>
+        {% endif %}
+        <{{ h }} class="text-xl font-semibold @sm:text-2xl @2xl:text-3xl">{{ card_link }}</{{ h }}>
+        {% if text is not empty %}
+          <p class="mb-0 text-md @sm:text-lg @2xl:text-xl">{{ text }}</p>
+        {% endif %}
+      </div>
+
+    {% endif %}
   </div>
 </div>

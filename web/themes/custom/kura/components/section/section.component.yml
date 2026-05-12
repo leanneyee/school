@@ -140,7 +140,7 @@ props:
     divide_columns:
       type: boolean
       title: Divide columns
-      description: Adds a hairline border between each grid column (removes gap).
+      description: Adds a hairline border between each grid column.
       default: false
       examples:
         - false

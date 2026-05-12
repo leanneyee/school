@@ -58,12 +58,16 @@
   )
 %}
 
+{% set has_bg = background_color is not empty %}
+{% set effective_pt = (has_bg and not border_top    and padding_block_start == '0') ? '64' : padding_block_start %}
+{% set effective_pb = (has_bg and not border_bottom and padding_block_end   == '0') ? '64' : padding_block_end %}
+
 {% set section_classes =
   section.apply({
     marginBlockStart: margin_block_start,
     marginBlockEnd: margin_block_end,
-    paddingBlockStart: padding_block_start,
-    paddingBlockEnd: padding_block_end,
+    paddingBlockStart: effective_pt,
+    paddingBlockEnd: effective_pb,
     backgroundColor: background_color|default('noColor')
   })
 %}
@@ -195,7 +199,7 @@
           {% endblock %}
         {% endset %}
         {% if header_content|trim is not empty %}
-          <header class="{{ border_top or background_color ? 'pt-6 md:pt-8 xl:pt-10 ' : '' }}mb-6 md:mb-8 xl:mb-10">
+          <header class="{{ border_top ? 'pt-6 md:pt-8 xl:pt-10 ' : '' }}mb-6 md:mb-8 xl:mb-10">
             {{ header_content }}
           </header>
         {% endif %}
@@ -214,7 +218,7 @@
           {% endblock %}
         {% endset %}
         {% if footer_content|trim is not empty %}
-          <footer class="mt-6 md:mt-8 xl:mt-10{{ border_bottom or background_color ? ' pb-6 md:pb-8 xl:pb-10' : '' }}">
+          <footer class="mt-6 md:mt-8 xl:mt-10{{ border_bottom ? ' pb-6 md:pb-8 xl:pb-10' : '' }}">
             {{ footer_content }}
           </footer>
         {% endif %}
