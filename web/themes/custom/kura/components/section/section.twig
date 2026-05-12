@@ -194,11 +194,8 @@
 
           {% endblock %}
         {% endset %}
-        {% if eyebrow or header_content|trim is not empty %}
+        {% if header_content|trim is not empty %}
           <header class="{{ border_top or background_color ? 'pt-6 md:pt-8 xl:pt-10 ' : '' }}mb-6 md:mb-8 xl:mb-10">
-            {% if eyebrow %}
-              <p class="{{ header_content|trim is not empty ? 'mb-3' : '' }} text-xs font-semibold uppercase tracking-[0.25em] text-[var(--eyebrow-color,var(--color-brand-leaf))]">{{ eyebrow }}</p>
-            {% endif %}
             {{ header_content }}
           </header>
         {% endif %}
