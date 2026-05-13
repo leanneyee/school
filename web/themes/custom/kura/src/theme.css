@@ -18,7 +18,7 @@
   --popover-foreground: oklch(0.22 0.05 250);
   --primary: oklch(0.32 0.11 255);
   --primary-foreground: oklch(0.99 0.005 240);
-  --secondary: oklch(0.95 0.025 155);
+  --secondary: oklch(0.95 0.02 240);
   --secondary-foreground: oklch(0.3 0.08 255);
   --muted: oklch(0.96 0.012 240);
   --muted-foreground: oklch(0.5 0.03 250);
@@ -104,4 +104,12 @@
   --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
   --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
   --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 12px 14px -1px hsl(0 0% 0% / 0.1);
+}
+
+@utility {
+  @media (min-width: 96rem) {
+    container {
+      max-width: var(--container-7xl); /* 80rem */
+    }
+  }
 }

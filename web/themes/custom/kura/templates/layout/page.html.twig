@@ -50,15 +50,25 @@
  */
 #}
 <div class="layout-container">
-  <header role="banner" class="sticky top-0 z-50">
+  <header role="banner" class="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
     {{ page.header }}
-    {% if not rendered_by_canvas %}
-      <div class="container mx-auto px-4 pb-4">
-        {{ breadcrumb }}
-        {{ title }}
-      </div>
-    {% endif %}
   </header>
+
+  {% if not rendered_by_canvas %}
+    <section class="border-b border-border bg-gradient-to-b from-secondary/60 to-background">
+      <div class="container mx-auto grid gap-4 auto-rows-auto px-4 py-12 sm:gap-6 sm:px-6 sm:py-16 md:gap-y-2 md:grid-cols-[2fr_1fr] md:items-center">
+        <div class="md:col-span-2">
+          {{ breadcrumb }}
+        </div>
+        <div>
+          {{ title }}
+        </div>
+        <div class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-[var(--shadow-soft)] [&_div]:absolute [&_div]:inset-0 [&_div]:size-full [&_div]:object-cover">
+          {{ node.field_featured_image|view }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
 
   {{ page.primary_menu }}
   {{ page.secondary_menu }}

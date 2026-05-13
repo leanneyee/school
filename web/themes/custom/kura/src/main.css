@@ -118,23 +118,23 @@
 
   /* Set base heading styles since Tailwind sets them to inherit */
   h1 {
-    @apply text-5xl leading-none font-semibold md:text-6xl lg:text-7xl 2xl:text-8xl;
+    @apply text-4xl font-bold tracking-tight text-foreground sm:text-5xl;
   }
 
   h2 {
-    @apply text-3xl font-bold md:text-4xl lg:text-5xl 2xl:text-6xl;
+    @apply mb-3 text-2xl font-semibold text-foreground;
   }
 
   h3 {
-    @apply text-2xl font-semibold xl:text-3xl;
+    @apply text-xl font-semibold;
   }
 
   h4 {
-    @apply text-xl font-semibold md:text-2xl;
+    @apply text-lg font-semibold md:text-xl;
   }
 
   h5 {
-    @apply text-lg font-semibold md:text-xl;
+    @apply text-base font-semibold md:text-lg;
   }
 
   h6 {
@@ -322,6 +322,11 @@
 
 @layer utilities {
   /* For custom utility classes with highest precedence. */
+
+  /* Cap container at 7xl (80rem) — overrides the 2xl breakpoint rule Tailwind generates. */
+  .container {
+    max-width: var(--container-7xl);
+  }
 
   /* Set the container query context for full-width elements. */
   .layout-content {
