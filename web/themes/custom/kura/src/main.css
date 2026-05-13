@@ -184,6 +184,22 @@
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
   }
+
+  .page-content div {
+    /* Default: space BEFORE every sibling except the first */
+    & > * + * { margin-top: 1.25rem; }
+
+    /* Tight space AFTER a heading */
+    & > :is(h2, h3, h4) + * { margin-top: 0.6rem; }
+
+    /* Generous space BEFORE a heading */
+    & > * + h2 { margin-top: 2.5rem; }
+    & > * + h3 { margin-top: 2rem; }
+    & > * + h4 { margin-top: 1.5rem; }
+
+    /* First child never has a top margin */
+    & > :first-child { margin-top: 0; }
+  }
 }
 
 @layer components {
