@@ -324,8 +324,10 @@
   /* For custom utility classes with highest precedence. */
 
   /* Cap container at 7xl (80rem) — overrides the 2xl breakpoint rule Tailwind generates. */
-  .container {
-    max-width: var(--container-7xl);
+  @media (min-width: 96rem) {
+    .container {
+      max-width: var(--container-7xl);
+    }
   }
 
   /* Set the container query context for full-width elements. */
