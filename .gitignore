@@ -45,3 +45,6 @@ $RECYCLE.BIN/
 /backups/
 *.sql
 *.sql.gz
+
+# Easy encryption
+.easy_encryption/
