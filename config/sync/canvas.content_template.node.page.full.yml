@@ -26,7 +26,7 @@ content_entity_type_id: node
 content_entity_type_bundle: page
 content_entity_type_view_mode: full
 component_tree:
-  '0:975ba437-5419-4e6e-9dcf-78ee40772751':
+  975ba437-5419-4e6e-9dcf-78ee40772751:
     uuid: 975ba437-5419-4e6e-9dcf-78ee40772751
     component_id: sdc.kura.page-header
     component_version: 8f3e4b3773699820
@@ -34,7 +34,7 @@ component_tree:
       media:
         sourceType: entity-field
         expression: 'ℹ︎␜entity:node:page␝field_featured_image␞␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
-  '0:breadcrumb:0:b424ec44-4c60-42de-abc2-a2f5da56ca7c':
+  b424ec44-4c60-42de-abc2-a2f5da56ca7c:
     parent_uuid: 975ba437-5419-4e6e-9dcf-78ee40772751
     slot: breadcrumb
     uuid: b424ec44-4c60-42de-abc2-a2f5da56ca7c
@@ -43,7 +43,7 @@ component_tree:
     inputs:
       label: Breadcrumbs
       label_display: '0'
-  '0:title:0:65867254-a0ab-4961-85cc-e623e15208e0':
+  65867254-a0ab-4961-85cc-e623e15208e0:
     parent_uuid: 975ba437-5419-4e6e-9dcf-78ee40772751
     slot: title
     uuid: 65867254-a0ab-4961-85cc-e623e15208e0
@@ -57,7 +57,7 @@ component_tree:
       text_size: heading-responsive-5xl
       text_color: default
       align: left
-  '1:bff079b6-3ed5-4bdf-8217-e6fc83bc581e':
+  bff079b6-3ed5-4bdf-8217-e6fc83bc581e:
     uuid: bff079b6-3ed5-4bdf-8217-e6fc83bc581e
     component_id: sdc.kura.section
     component_version: 2654ee5441e684e0
@@ -74,7 +74,7 @@ component_tree:
       divide_columns: false
       section_header: false
       section_footer: false
-  '1:main_slot:0:7882a6b8-eed6-4805-84d3-5c206a0bf2e7':
+  7882a6b8-eed6-4805-84d3-5c206a0bf2e7:
     parent_uuid: bff079b6-3ed5-4bdf-8217-e6fc83bc581e
     slot: main_slot
     uuid: 7882a6b8-eed6-4805-84d3-5c206a0bf2e7
@@ -93,7 +93,7 @@ component_tree:
       divide_columns: false
       section_header: false
       section_footer: false
-  '1:main_slot:0:main_slot:0:ce13a88b-1a65-4ce9-8c12-4ab50b1a8786':
+  ce13a88b-1a65-4ce9-8c12-4ab50b1a8786:
     parent_uuid: 7882a6b8-eed6-4805-84d3-5c206a0bf2e7
     slot: main_slot
     uuid: ce13a88b-1a65-4ce9-8c12-4ab50b1a8786

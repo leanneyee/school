@@ -22,7 +22,7 @@ dependencies:
 id: principalswelcome
 label: "Principal's Welcome"
 component_tree:
-  '0:08323523-8722-4e8b-b737-fbe0c9bdb01c':
+  08323523-8722-4e8b-b737-fbe0c9bdb01c:
     uuid: 08323523-8722-4e8b-b737-fbe0c9bdb01c
     component_id: sdc.kura.profile-highlight
     component_version: a4647778da0ecf9e
@@ -34,7 +34,7 @@ component_tree:
         format: canvas_html_block
       attribution: 'Jane Smith, Principal'
       media_display: left
-  '0:media:0:a543365a-fd00-4fec-944b-cd35d521bd3d':
+  a543365a-fd00-4fec-944b-cd35d521bd3d:
     parent_uuid: 08323523-8722-4e8b-b737-fbe0c9bdb01c
     slot: media
     uuid: a543365a-fd00-4fec-944b-cd35d521bd3d

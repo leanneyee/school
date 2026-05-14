@@ -28,7 +28,7 @@ dependencies:
 id: learningteams
 label: 'Learning Teams'
 component_tree:
-  '0:db7b5c53-3dd3-4428-a6a9-f75a3e09bb79':
+  db7b5c53-3dd3-4428-a6a9-f75a3e09bb79:
     uuid: db7b5c53-3dd3-4428-a6a9-f75a3e09bb79
     component_id: sdc.kura.section
     component_version: 2654ee5441e684e0
@@ -46,7 +46,7 @@ component_tree:
       divide_columns: true
       section_header: true
       section_footer: false
-  '0:header_slot:0:b0002d5f-dee7-4212-8460-17eaedf4da5f':
+  b0002d5f-dee7-4212-8460-17eaedf4da5f:
     parent_uuid: db7b5c53-3dd3-4428-a6a9-f75a3e09bb79
     slot: header_slot
     uuid: b0002d5f-dee7-4212-8460-17eaedf4da5f
@@ -54,7 +54,19 @@ component_tree:
     component_version: e74ebd1323dbd184
     inputs:
       eyebrow: 'Our Learning'
-  '0:header_slot:0:cta:0:fa898711-bce8-4743-91f5-f0193515c980':
+  c18c84d7-19c5-4680-a3c0-4097e1c31a84:
+    parent_uuid: b0002d5f-dee7-4212-8460-17eaedf4da5f
+    slot: heading
+    uuid: c18c84d7-19c5-4680-a3c0-4097e1c31a84
+    component_id: sdc.kura.heading
+    component_version: fee1c60088ebfe2f
+    inputs:
+      heading_text: 'Three teams, one whānau.'
+      level: 2
+      text_size: heading-responsive-5xl
+      text_color: default
+      align: left
+  fa898711-bce8-4743-91f5-f0193515c980:
     parent_uuid: b0002d5f-dee7-4212-8460-17eaedf4da5f
     slot: cta
     uuid: fa898711-bce8-4743-91f5-f0193515c980
@@ -68,19 +80,7 @@ component_tree:
       mobile_width: false
       icon_first: false
       disabled: false
-  '0:header_slot:0:heading:0:c18c84d7-19c5-4680-a3c0-4097e1c31a84':
-    parent_uuid: b0002d5f-dee7-4212-8460-17eaedf4da5f
-    slot: heading
-    uuid: c18c84d7-19c5-4680-a3c0-4097e1c31a84
-    component_id: sdc.kura.heading
-    component_version: fee1c60088ebfe2f
-    inputs:
-      heading_text: 'Three teams, one whānau.'
-      level: 2
-      text_size: heading-responsive-5xl
-      text_color: default
-      align: left
-  '0:main_slot:0:f654a534-8849-4e0b-9de3-f154d0b6de9f':
+  f654a534-8849-4e0b-9de3-f154d0b6de9f:
     parent_uuid: db7b5c53-3dd3-4428-a6a9-f75a3e09bb79
     slot: main_slot
     uuid: f654a534-8849-4e0b-9de3-f154d0b6de9f
@@ -99,7 +99,7 @@ component_tree:
         target_id: '3'
       text: 'Curiosity, play and the foundations of literacy and numeracy.'
       is_text_centered: false
-  '0:main_slot:1:79ebf315-c314-4dcb-84c1-c7f1c3e77ca3':
+  79ebf315-c314-4dcb-84c1-c7f1c3e77ca3:
     parent_uuid: db7b5c53-3dd3-4428-a6a9-f75a3e09bb79
     slot: main_slot
     uuid: 79ebf315-c314-4dcb-84c1-c7f1c3e77ca3
@@ -119,7 +119,7 @@ component_tree:
         target_id: '4'
       text: 'Building independence and a love of learning.'
       is_text_centered: false
-  '0:main_slot:2:c9c57957-7d9c-4e87-94be-600646004d33':
+  c9c57957-7d9c-4e87-94be-600646004d33:
     parent_uuid: db7b5c53-3dd3-4428-a6a9-f75a3e09bb79
     slot: main_slot
     uuid: c9c57957-7d9c-4e87-94be-600646004d33
