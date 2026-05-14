@@ -21,10 +21,10 @@
       {% if eyebrow %}
         <p class="{{ eyebrow_classes.apply({}) }}">{{ eyebrow }}</p>
       {% endif %}
-      <div class="flex flex-col gap-y-1">{{ heading }}</div>
+      <div class="flex flex-col gap-y-4">{{ heading }}</div>
     </div>
 
-    <div class="{{ cta is not empty ? 'flex flex-wrap shrink-0 gap-6 @3xl:min-w-40 ' ~ (cta_stack ? 'flex-col gap-8' : '') : 'hidden' }}">
+    <div class="{{ cta is not empty ? 'flex flex-wrap shrink-0 gap-6 @3xl:min-w-40 ' ~ (cta_stack ? 'flex-col gap-10 mt-4 @3xl:gap-8' : '') : 'hidden' }}">
       {{ cta }}
     </div>
 

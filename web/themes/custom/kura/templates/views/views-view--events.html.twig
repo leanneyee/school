@@ -4,6 +4,11 @@
   The block is hidden automatically when the view returns no results
   (block_hide_empty is set on the block display).
 #}
+{% if header %}
+  <div class="view-header">
+    {{ header }}
+  </div>
+{% endif %}
 {% if rows %}
   <ul class="list-none p-0">
     {{ rows }}
@@ -12,4 +17,7 @@
   <div class="rounded-lg border border-dashed border-border bg-secondary/30 px-6 py-10 text-center font-semibold text-foreground">
     {{ empty }}
   </div>
+{% endif %}
+{% if pager %}
+  {{ pager }}
 {% endif %}

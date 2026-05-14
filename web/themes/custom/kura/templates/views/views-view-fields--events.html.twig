@@ -13,6 +13,7 @@
 {% set diff     = end_ts - start_ts %}
 {% set all_day  = ev.field_event_date.0.value|date('His', 'UTC') == '000000' %}
 
+{# Human-readable display #}
 {% if all_day and diff > 86400 %}
   {% set date_display = ev.field_event_date.0.value|date('j M') ~ ' – ' ~ (end_ts - 86400)|date('j M Y') %}
 {% elseif not all_day %}
@@ -25,21 +26,34 @@
   {% set date_display = ev.field_event_date.0.value|date('j M Y') %}
 {% endif %}
 
+{# Machine-readable datetime attributes for <time> #}
+{% set start_date_iso = ev.field_event_date.0.value|date('Y-m-d') %}
+{% if all_day and diff > 86400 %}
+  {% set block_datetime = start_date_iso %}
+  {% set meta_datetime  = start_date_iso ~ '/' ~ (end_ts - 86400)|date('Y-m-d') %}
+{% elseif not all_day %}
+  {% set block_datetime = start_date_iso %}
+  {% set meta_datetime  = ev.field_event_date.0.value|date('Y-m-d\\TH:i') ~ '/' ~ ev.field_event_date.0.end_value|date('Y-m-d\\TH:i') %}
+{% else %}
+  {% set block_datetime = start_date_iso %}
+  {% set meta_datetime  = start_date_iso %}
+{% endif %}
+
 <li class="grid grid-cols-[auto_1fr] items-center gap-4 py-3 sm:gap-5">
-  <div class="flex min-w-13 flex-col items-center justify-center rounded-md border border-border bg-card px-2 py-1.5 text-center">
+  <time datetime="{{ block_datetime }}" class="flex min-w-13 flex-col items-center justify-center rounded-md border border-border bg-card px-2 py-1.5 text-center" aria-hidden="true">
     <span class="text-lg font-semibold leading-none tracking-tight text-foreground">
       {{- ev.field_event_date.0.value|date('j') -}}
     </span>
     <span class="mt-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-brand-leaf">
       {{- ev.field_event_date.0.value|date('M') -}}
     </span>
-  </div>
+  </time>
   <div class="min-w-0">
-    <h3 class="mb-0 text-sm font-medium text-foreground sm:text-base">
+    <h3 class="mb-0 text-sm font-semibold text-foreground sm:text-base">
       {{- fields.title.content -}}
     </h3>
     <p class="mt-0.5 text-xs text-muted-foreground">
-      {{- date_display -}}
+      <time datetime="{{ meta_datetime }}">{{- date_display -}}</time>
     </p>
   </div>
 </li>

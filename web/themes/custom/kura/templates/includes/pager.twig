@@ -1,4 +1,4 @@
-{% set classes = ['pager', 'my-4', 'font-medium'] %}
+{% set classes = ['pager', 'my-12', 'font-medium'] %}
 
 {% set ellipsis_container_classes = ['flex items-center justify-center rounded px-2 py-1.5'] %}
 
@@ -19,7 +19,7 @@
     {% else %}
       <h2 id="{{ heading_id }}" class="sr-only">{{ 'Pagination'|t }}</h2>
     {% endif %}
-    <ul class="flex list-none items-center justify-center gap-1">
+    <ul class="flex list-none items-center justify-center gap-6">
       {# Print first item if we are not on the first page. #}
       {% if items.first %}
         <li>
@@ -69,7 +69,7 @@
         <li>
           {% if current == key %}
             {% set title = 'Current page'|t %}
-            {% set page_classes = 'flex items-center justify-center aspect-square rounded px-2 lg:px-4 border border' %}
+            {% set page_classes = 'flex items-center justify-center aspect-square rounded px-2 lg:px-4 border border-dotted font-bold bg-secondary/20' %}
           {% else %}
             {% set title =
               'Go to page @key'|t({
