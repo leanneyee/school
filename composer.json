@@ -51,6 +51,8 @@
         "drupal/easy_encryption": "^1",
         "drupal/eca": "^3.0.10",
         "drupal/editoria11y": "^2.2",
+        "drupal/feeds": "^3.2",
+        "drupal/feeds_ical": "^3.1",
         "drupal/field_group": "^4.0.0",
         "drupal/focal_point": "^2.1.2",
         "drupal/friendly_captcha_challenge": "^0.9",
