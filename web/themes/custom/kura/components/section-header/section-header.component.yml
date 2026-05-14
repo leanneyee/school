@@ -22,6 +22,11 @@ props:
       default: bottom
       examples:
         - bottom
+    cta_stack:
+      type: boolean
+      title: Stack CTAs
+      description: "Display CTA slot items as a vertical column instead of wrapping horizontally."
+      default: false
     eyebrow:
       type: string
       title: Eyebrow

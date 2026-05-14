@@ -4,27 +4,29 @@
 ]) %}
 
 {% set wrapper = html_cva(
-  base: ['flex flex-col gap-6 lg:flex-row lg:justify-between'],
+  base: ['flex flex-col gap-6 @3xl:flex-row @3xl:justify-between'],
   variants: {
     ctaAlign: {
-      top:    'lg:items-start',
-      middle: 'lg:items-center',
-      bottom: 'lg:items-end'
+      top:    '@3xl:items-start',
+      middle: '@3xl:items-center',
+      bottom: '@3xl:items-end'
     }
   }
 ) %}
 
-<div class="{{ wrapper.apply({ ctaAlign: cta_align|default('bottom') }) }}">
+<div class="@container">
+  <div class="{{ wrapper.apply({ ctaAlign: cta_align|default('bottom') }) }}">
 
-  <div class="flex flex-col gap-3 flex-1 min-w-0">
-    {% if eyebrow %}
-      <p class="{{ eyebrow_classes.apply({}) }}">{{ eyebrow }}</p>
-    {% endif %}
-    <div class="flex flex-col gap-y-1">{{ heading }}</div>
+    <div class="flex flex-col gap-3 flex-1 min-w-0">
+      {% if eyebrow %}
+        <p class="{{ eyebrow_classes.apply({}) }}">{{ eyebrow }}</p>
+      {% endif %}
+      <div class="flex flex-col gap-y-1">{{ heading }}</div>
+    </div>
+
+    <div class="{{ cta is not empty ? 'flex flex-wrap shrink-0 gap-6 @3xl:min-w-40 ' ~ (cta_stack ? 'flex-col gap-8' : '') : 'hidden' }}">
+      {{ cta }}
+    </div>
+
   </div>
-
-  <div class="{{ cta is not empty ? 'shrink-0 lg:min-w-[10rem]' : 'hidden' }}">
-    {{ cta }}
-  </div>
-
 </div>

@@ -7,6 +7,7 @@ configEntityTypeId: component
 weight: 0
 items:
   - block.views_block.events-block_1
+  - block.views_block.events-listing
   - block.views_block.events-upcoming
   - block.views_block.recent_pages-block_recent_pages
   - block.views_block.test_view_block-block_1

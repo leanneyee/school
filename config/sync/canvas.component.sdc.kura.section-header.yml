@@ -6,9 +6,47 @@ dependencies:
     - options
   theme:
     - kura
-active_version: b6d67f814d98b35b
+active_version: f2fbace831b9ee5a
 versioned_properties:
   active:
+    settings:
+      prop_field_definitions:
+        cta_align:
+          required: true
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: bottom
+          expression: ℹ︎list_string␟value
+        cta_stack:
+          required: false
+          field_type: boolean
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: boolean_checkbox
+          default_value: null
+          expression: ℹ︎boolean␟value
+        eyebrow:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+    fallback_metadata:
+      slot_definitions:
+        heading:
+          title: Heading
+          description: 'Heading component. Displays on the left.'
+        cta:
+          title: 'Call to Action'
+          description: 'Button or link. Displays inline with the heading at wider container sizes.'
+  b6d67f814d98b35b:
     settings:
       prop_field_definitions:
         cta_align:

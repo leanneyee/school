@@ -37,7 +37,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% set duration = field_event_date__duration %}\r\n{% set is_all_day = (duration % 1440 == 0) %}\r\n\r\n{% if is_all_day %}\r\n  {{ field_event_date__value|date('D j M Y') }}\r\n  {% if duration > 1440 %}\r\n    – {{ field_event_date__end_value|date('D j M Y') }}\r\n  {% endif %}\r\n{% else %}\r\n  {{ field_event_date__value|date('D j M Y g:ia') }}\r\n  {% if field_event_date__end_value and field_event_date__end_value != field_event_date__value %}\r\n    – {{ field_event_date__end_value|date('D j M Y g:ia') }}\r\n  {% endif %}\r\n{% endif %}"
+            text: "{# DATE FIELD IS OVERRIDDEN IN TEMPLATE SO THE FOLLOWING LOGIC IS NOT CURRENTLY USED #}\r\n{% set duration = field_event_date__duration %}\r\n{% set is_all_day = (duration % 1440 == 0) %}\r\n\r\n{% if is_all_day %}\r\n  {{ field_event_date__value|date('D j M Y') }}\r\n  {% if duration > 1440 %}\r\n    – {{ field_event_date__end_value|date('D j M Y') }}\r\n  {% endif %}\r\n{% else %}\r\n  {{ field_event_date__value|date('D j M Y g:ia') }}\r\n  {% if field_event_date__end_value and field_event_date__end_value != field_event_date__value %}\r\n    – {{ field_event_date__end_value|date('D j M Y g:ia') }}\r\n  {% endif %}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -284,20 +284,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: 'View all events link'
-          plugin_id: text
-          empty: false
-          content:
-            value: '<a href="/school-life/events-calendar">View all events</a>'
-            format: content_format
-          tokenize: false
+      header: {  }
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -309,12 +296,77 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_event_date'
+  listing:
+    id: listing
+    display_title: Listing
+    display_plugin: block
+    position: 2
+    display_options:
+      pager:
+        type: full
+        options:
+          offset: 0
+          pagination_heading_level: h4
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      defaults:
+        pager: false
+      display_description: ''
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_event_date'
   upcoming:
     id: upcoming
-    display_title: Block
+    display_title: Upcoming
     display_plugin: block
     position: 1
     display_options:
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 5
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: "<p>No upcoming events just yet!</p> <p>We're busy planning an exciting term ahead. Check back soon to stay in the loop with everything happening at school.</p>"
+            format: content_format
+          tokenize: false
+      defaults:
+        empty: false
+        pager: false
+      display_description: ''
       display_extenders: {  }
     cache_metadata:
       max-age: -1

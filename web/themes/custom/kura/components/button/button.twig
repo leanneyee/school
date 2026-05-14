@@ -71,7 +71,7 @@
 
 {% set button_width    = mobile_width|default(false) ? 'full' : 'fit' %}
 {% set icon_position   = icon_first|default(false) ? 'first' : 'last' %}
-{% set icon_classes    = 'transition duration-300 ease-in-out group-hover:translate-x-1' %}
+{% set icon_classes    = 'transition duration-300 ease-in-out' ~ (icon_first|default(false) ? '' : ' group-hover:translate-x-1') %}
 
 {# Normalize btn_classes — handle both array and string formats #}
 {% set additional_classes = btn_classes|default('') %}

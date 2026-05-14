@@ -1,33 +1,45 @@
 {#
   Individual event row for the Upcoming Events block.
 
-  Date logic using raw entity values:
+  Date logic:
   - iCal all-day single events store end as the NEXT day (exclusive DTEND).
-    A difference of exactly 1 day (86400s) means a single all-day event → show start only.
-  - A difference > 1 day means a genuine multi-day event → show start – (end minus 1 day).
-  - Timed events (time ≠ 00:00:00) → show start only.
+    A difference of exactly 1 day (86400s) = single all-day → show start only.
+  - diff > 86400 and all-day = multi-day → show start – (end minus 1 day).
+  - Timed events (time ≠ 00:00:00) → show date + time.
 #}
 {% set ev = row._entity %}
 {% set start_ts = ev.field_event_date.0.value|date('U') %}
 {% set end_ts   = ev.field_event_date.0.end_value|date('U') %}
 {% set diff     = end_ts - start_ts %}
-{% set all_day  = ev.field_event_date.0.value|date('His') == '000000' %}
+{% set all_day  = ev.field_event_date.0.value|date('His', 'UTC') == '000000' %}
 
 {% if all_day and diff > 86400 %}
   {% set date_display = ev.field_event_date.0.value|date('j M') ~ ' – ' ~ (end_ts - 86400)|date('j M Y') %}
+{% elseif not all_day %}
+  {% if ev.field_event_date.0.value|date('Ymd') == ev.field_event_date.0.end_value|date('Ymd') %}
+    {% set date_display = ev.field_event_date.0.value|date('j M Y, g:ia') ~ ' – ' ~ ev.field_event_date.0.end_value|date('g:ia') %}
+  {% else %}
+    {% set date_display = ev.field_event_date.0.value|date('j M, g:ia') ~ ' – ' ~ ev.field_event_date.0.end_value|date('j M Y, g:ia') %}
+  {% endif %}
 {% else %}
   {% set date_display = ev.field_event_date.0.value|date('j M Y') %}
 {% endif %}
 
-<li>
-  <div class="group grid grid-cols-12 items-baseline gap-4 py-5 transition">
-    <span class="col-span-12 mb-0 text-xs font-semibold uppercase tracking-widest text-muted-foreground sm:col-span-2">
-      {{- date_display -}}
+<li class="grid grid-cols-[auto_1fr] items-center gap-4 py-3 sm:gap-5">
+  <div class="flex min-w-13 flex-col items-center justify-center rounded-md border border-border bg-card px-2 py-1.5 text-center">
+    <span class="text-lg font-semibold leading-none tracking-tight text-foreground">
+      {{- ev.field_event_date.0.value|date('j') -}}
     </span>
-    <div class="col-span-12 sm:col-span-10">
-      <h3 class="mb-0 text-lg font-semibold transition group-hover:text-primary">
-        {{- fields.title.content -}}
-      </h3>
-    </div>
+    <span class="mt-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-brand-leaf">
+      {{- ev.field_event_date.0.value|date('M') -}}
+    </span>
+  </div>
+  <div class="min-w-0">
+    <h3 class="mb-0 text-sm font-medium text-foreground sm:text-base">
+      {{- fields.title.content -}}
+    </h3>
+    <p class="mt-0.5 text-xs text-muted-foreground">
+      {{- date_display -}}
+    </p>
   </div>
 </li>
