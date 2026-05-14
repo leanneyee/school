@@ -63,9 +63,11 @@
         <div>
           {{ title }}
         </div>
+        {% if node.field_featured_image is not empty %}
         <div class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-[var(--shadow-soft)] [&_div]:absolute [&_div]:inset-0 [&_div]:size-full [&_div]:object-cover">
           {{ node.field_featured_image|view }}
         </div>
+        {% endif %}
       </div>
     </div>
   {% endif %}

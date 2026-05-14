@@ -1,0 +1,19 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Page Header
+description: Breadcrumb, page title, and optional featured image for the top of content pages. The title and image columns sit side-by-side on medium screens and above.
+group: Kura
+status: stable
+props:
+  type: object
+  properties:
+    media:
+      $ref: json-schema-definitions://canvas.module/image
+      title: Featured image
+      type: object
+slots:
+  breadcrumb:
+    title: Breadcrumb
+    description: Place a Breadcrumb block here.
+  title:
+    title: Title
+    description: Place a Page title block here.

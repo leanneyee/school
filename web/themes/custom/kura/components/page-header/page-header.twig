@@ -1,0 +1,48 @@
+{% set has_image = media is not empty and media.src is not empty %}
+
+{% set grid = html_cva(
+  base: [
+    'container mx-auto grid auto-rows-auto gap-4 px-4 py-12',
+    'sm:gap-6 sm:px-6 sm:py-16',
+    'md:gap-y-2 md:items-center',
+  ],
+  variants: {
+    hasImage: {
+      yes: 'md:grid-cols-[2fr_1fr]',
+      no: ''
+    }
+  }
+) %}
+
+{% set image_div = html_cva(
+  base: [
+    'relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-[var(--shadow-soft)]',
+    '[&_div]:absolute [&_div]:inset-0 [&_div]:size-full [&_div]:object-cover',
+  ]
+) %}
+
+<section class="cq-full border-b border-border bg-linear-to-b from-secondary/60 to-background">
+  <div class="{{ grid.apply({ hasImage: has_image ? 'yes' : 'no' }) }}">
+
+    <div class="{{ has_image ? 'md:col-span-2' : '' }} min-h-6">
+      {{ breadcrumb }}
+    </div>
+
+    <div class="min-h-10">
+      {{ title }}
+    </div>
+
+    {% if has_image %}
+      <div class="{{ image_div.apply({}) }}">
+        {% include 'canvas:image' ignore missing with {
+          src: media.src,
+          alt: media.alt,
+          class: 'object-cover w-full h-full',
+          width: media.width,
+          height: media.height,
+        } only %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
