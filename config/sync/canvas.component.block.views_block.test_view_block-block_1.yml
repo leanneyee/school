@@ -1,0 +1,26 @@
+uuid: ac1b0d70-0937-4cab-b6e0-428a7ba38dc6
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.test_view_block
+  module:
+    - views
+active_version: 09724bbad19a9035
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'views_block:test_view_block-block_1'
+        label: 'Test View Block'
+        label_display: '0'
+        provider: views
+        views_label: ''
+        items_per_page: null
+    fallback_metadata:
+      slot_definitions: null
+label: 'Test View Block'
+id: block.views_block.test_view_block-block_1
+provider: views
+source: block
+source_local_id: 'views_block:test_view_block-block_1'

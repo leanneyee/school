@@ -1,0 +1,22 @@
+uuid: a9c5b63f-38e6-4fa3-abeb-6fae756c7196
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - node.type.event
+  module:
+    - text
+id: node.event.field_content
+field_name: field_content
+entity_type: node
+bundle: event
+label: Description
+description: 'Event description (maps to iCal DESCRIPTION)'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

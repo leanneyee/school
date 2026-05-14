@@ -1,0 +1,437 @@
+uuid: 218edf54-0233-44af-8cbe-33fa4d2f1458
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.js_component.profile_highlight
+    - filter.format.canvas_html_block
+  module:
+    - options
+    - text
+active_version: 9bf7ec1b735d647c
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        name:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Sarah Williams'
+          expression: ℹ︎string␟value
+        role:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: Principal
+          expression: ℹ︎string␟value
+        imagePosition:
+          required: true
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: right
+          expression: ℹ︎list_string␟value
+    fallback_metadata:
+      slot_definitions:
+        image:
+          title: Image
+          examples:
+            - '<img src="https://images.unsplash.com/photo-1659355893982-cb1e87a8758a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBmZW1hbGUlMjBzY2hvb2wlMjBwcmluY2lwYWx8ZW58MXx8fHwxNzc1MDc3NjIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Sarah Williams" className="w-full h-full object-cover" />'
+        header:
+          title: Header
+          examples:
+            - |-
+              <h2 className="text-4xl sm:text-5xl text-gray-900 mb-3">
+                Principal's Welcome
+              </h2>
+        content:
+          title: Content
+          examples:
+            - |-
+              <>
+              <p>At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive. Our dedicated staff work closely with whānau  to create meaningful learning experiences that build confidence, curiosity, and a  love of learning.</p>
+              <p>We look forward to welcoming you into our school community.</p>
+              </>
+  9971e0e8c4b10d97:
+    settings:
+      prop_field_definitions:
+        name:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Sarah Williams'
+          expression: ℹ︎string␟value
+        text:
+          required: false
+          field_type: text_long
+          field_storage_settings: {  }
+          field_instance_settings:
+            allowed_formats:
+              - canvas_html_block
+          field_widget: text_textarea
+          default_value:
+            -
+              value: 'At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive. Our dedicated staff work closely with whānau to create meaningful learning experiences that build confidence, curiosity, and a love of learning.\n\nWe look forward to welcoming you into our school community.'
+              format: canvas_html_block
+          expression: ℹ︎text_long␟processed
+        imagePosition:
+          required: true
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: right
+          expression: ℹ︎list_string␟value
+    fallback_metadata:
+      slot_definitions:
+        image:
+          title: Image
+          examples:
+            - '<img src="https://images.unsplash.com/photo-1659355893982-cb1e87a8758a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBmZW1hbGUlMjBzY2hvb2wlMjBwcmluY2lwYWx8ZW58MXx8fHwxNzc1MDc3NjIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Sarah Williams" className="w-full h-full object-cover" />'
+        header:
+          title: Header
+          examples:
+            - |-
+              <h2 className="text-4xl sm:text-5xl text-gray-900 mb-3">
+                Principal's Welcome
+              </h2>
+        content:
+          title: Content
+          examples:
+            - |-
+              <>
+              <p>At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive. Our dedicated staff work closely with whānau  to create meaningful learning experiences that build confidence, curiosity, and a  love of learning.</p>
+              <p>We look forward to welcoming you into our school community.</p>
+              </>
+  17754f99db66ddc7:
+    settings:
+      prop_field_definitions:
+        name:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Sarah Williams'
+          expression: ℹ︎string␟value
+        text:
+          required: false
+          field_type: text_long
+          field_storage_settings: {  }
+          field_instance_settings:
+            allowed_formats:
+              - canvas_html_block
+          field_widget: text_textarea
+          default_value:
+            -
+              value: 'At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive. Our dedicated staff work closely with whānau to create meaningful learning experiences that build confidence, curiosity, and a love of learning.\n\nWe look forward to welcoming you into our school community.'
+              format: canvas_html_block
+          expression: ℹ︎text_long␟processed
+        imagePosition:
+          required: true
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: right
+          expression: ℹ︎list_string␟value
+    fallback_metadata:
+      slot_definitions:
+        image:
+          title: Image
+          examples:
+            - |-
+              <div className="relative w-64 h-64 mx-auto rounded-full overflow-hidden shadow-xl ring-4 ring-blue-100">
+                <img src="https://images.unsplash.com/photo-1659355893982-cb1e87a8758a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBmZW1hbGUlMjBzY2hvb2wlMjBwcmluY2lwYWx8ZW58MXx8fHwxNzc1MDc3NjIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Sarah Williams" className="w-full h-full object-cover" />
+              </div>
+        header:
+          title: Header
+          examples:
+            - |-
+              <h2 className="text-4xl sm:text-5xl text-gray-900 mb-3">
+                Principal's Welcome
+              </h2>
+        content:
+          title: Content
+          examples:
+            - |-
+              <>
+              <p>At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive. Our dedicated staff work closely with whānau  to create meaningful learning experiences that build confidence, curiosity, and a  love of learning.</p>
+              <p>We look forward to welcoming you into our school community.</p>
+              </>
+  00b32cb0ed357ffd:
+    settings:
+      prop_field_definitions:
+        name:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Sarah Williams'
+          expression: ℹ︎string␟value
+        text:
+          required: false
+          field_type: text_long
+          field_storage_settings: {  }
+          field_instance_settings:
+            allowed_formats:
+              - canvas_html_block
+          field_widget: text_textarea
+          default_value:
+            -
+              value: 'At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive. Our dedicated staff work closely with whānau to create meaningful learning experiences that build confidence, curiosity, and a love of learning.\n\nWe look forward to welcoming you into our school community.'
+              format: canvas_html_block
+          expression: ℹ︎text_long␟processed
+        imagePosition:
+          required: true
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: right
+          expression: ℹ︎list_string␟value
+    fallback_metadata:
+      slot_definitions:
+        image:
+          title: Image
+          examples:
+            - '<img src="https://images.unsplash.com/photo-1659355893982-cb1e87a8758a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBmZW1hbGUlMjBzY2hvb2wlMjBwcmluY2lwYWx8ZW58MXx8fHwxNzc1MDc3NjIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Sarah Williams" className="w-full h-full object-cover" />'
+        header:
+          title: Header
+          examples:
+            - |-
+              <h2 className="text-4xl sm:text-5xl text-gray-900 mb-3">
+                Principal's Welcome
+              </h2>
+        content:
+          title: Content
+          examples:
+            - |
+              <p>At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive. Our dedicated staff work closely with whānau  to create meaningful learning experiences that build confidence, curiosity, and a  love of learning.</p>
+              <p>We look forward to welcoming you into our school community.</p>
+  aa1399ff731d08f3:
+    settings:
+      prop_field_definitions:
+        name:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Sarah Williams'
+          expression: ℹ︎string␟value
+        text:
+          required: false
+          field_type: text_long
+          field_storage_settings: {  }
+          field_instance_settings:
+            allowed_formats:
+              - canvas_html_block
+          field_widget: text_textarea
+          default_value:
+            -
+              value: 'At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive. Our dedicated staff work closely with whānau to create meaningful learning experiences that build confidence, curiosity, and a love of learning.\n\nWe look forward to welcoming you into our school community.'
+              format: canvas_html_block
+          expression: ℹ︎text_long␟processed
+        imagePosition:
+          required: true
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: right
+          expression: ℹ︎list_string␟value
+    fallback_metadata:
+      slot_definitions:
+        image:
+          title: Image
+          examples:
+            - '<img src="https://images.unsplash.com/photo-1659355893982-cb1e87a8758a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBmZW1hbGUlMjBzY2hvb2wlMjBwcmluY2lwYWx8ZW58MXx8fHwxNzc1MDc3NjIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Sarah Williams" />'
+        header:
+          title: Header
+          examples:
+            - |-
+              <h2 className="text-4xl sm:text-5xl text-gray-900 mb-3">
+                Principal's Welcome
+              </h2>
+        content:
+          title: Content
+          examples:
+            - |
+              <p>At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive. Our dedicated staff work closely with whānau  to create meaningful learning experiences that build confidence, curiosity, and a  love of learning.</p>
+              <p>We look forward to welcoming you into our school community.</p>
+  667558d0990c6806:
+    settings:
+      prop_field_definitions:
+        name:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Sarah Williams'
+          expression: ℹ︎string␟value
+        text:
+          required: false
+          field_type: text_long
+          field_storage_settings: {  }
+          field_instance_settings:
+            allowed_formats:
+              - canvas_html_block
+          field_widget: text_textarea
+          default_value:
+            -
+              value: 'At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive. Our dedicated staff work closely with whānau to create meaningful learning experiences that build confidence, curiosity, and a love of learning.\n\nWe look forward to welcoming you into our school community.'
+              format: canvas_html_block
+          expression: ℹ︎text_long␟processed
+        imagePosition:
+          required: true
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: right
+          expression: ℹ︎list_string␟value
+    fallback_metadata:
+      slot_definitions:
+        image:
+          title: Image
+          examples:
+            - '<img src="https://images.unsplash.com/photo-1659355893982-cb1e87a8758a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBmZW1hbGUlMjBzY2hvb2wlMjBwcmluY2lwYWx8ZW58MXx8fHwxNzc1MDc3NjIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Sarah Williams" />'
+        header:
+          title: Header
+          examples:
+            - |-
+              <h2 className="text-4xl sm:text-5xl text-gray-900 mb-3">
+                Principal's Welcome
+              </h2>
+  78a41dcb63ef7861:
+    settings:
+      prop_field_definitions:
+        name:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Sarah Williams'
+          expression: ℹ︎string␟value
+        text:
+          required: false
+          field_type: text_long
+          field_storage_settings: {  }
+          field_instance_settings:
+            allowed_formats:
+              - canvas_html_block
+          field_widget: text_textarea
+          default_value:
+            -
+              value: 'At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive. Our dedicated staff work closely with whānau to create meaningful learning experiences that build confidence, curiosity, and a love of learning.\n\nWe look forward to welcoming you into our school community.'
+              format: canvas_html_block
+          expression: ℹ︎text_long␟processed
+        imagePosition:
+          required: true
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: right
+          expression: ℹ︎list_string␟value
+    fallback_metadata:
+      slot_definitions:
+        image:
+          title: Image
+          examples:
+            - '<img src="https://images.unsplash.com/photo-1659355893982-cb1e87a8758a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBmZW1hbGUlMjBzY2hvb2wlMjBwcmluY2lwYWx8ZW58MXx8fHwxNzc1MDc3NjIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Sarah Williams" />'
+  b6b66de7cdf0cd06:
+    settings:
+      prop_field_definitions:
+        name:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Sarah Williams'
+          expression: ℹ︎string␟value
+        text:
+          required: false
+          field_type: text_long
+          field_storage_settings: {  }
+          field_instance_settings:
+            allowed_formats:
+              - canvas_html_block
+          field_widget: text_textarea
+          default_value:
+            -
+              value: 'At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive. Our dedicated staff work closely with whānau to create meaningful learning experiences that build confidence, curiosity, and a love of learning.\n\nWe look forward to welcoming you into our school community.'
+              format: canvas_html_block
+          expression: ℹ︎text_long␟processed
+        imagePosition:
+          required: true
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: right
+          expression: ℹ︎list_string␟value
+    fallback_metadata:
+      slot_definitions:
+        image:
+          title: Image
+label: 'Profile Highlight'
+id: js.profile_highlight
+provider: null
+source: js
+source_local_id: profile_highlight

@@ -1,0 +1,47 @@
+uuid: 0feccb16-6eec-44e2-89a0-2b0af5ff89fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.kura.image
+    - canvas.component.sdc.kura.profile-highlight
+    - field.field.media.image.field_media_image
+    - field.field.media.svg_image.field_media_svg_image
+    - filter.format.canvas_html_block
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - media.type.svg_image
+  content:
+    - 'file:file:abfb4fe3-938f-4757-8370-dd5dd618f690'
+    - 'media:image:5890a3bf-232d-453f-a63d-a73c8b8464b4'
+  module:
+    - file
+    - media
+    - options
+    - text
+id: principalswelcome
+label: "Principal's Welcome"
+component_tree:
+  '0:08323523-8722-4e8b-b737-fbe0c9bdb01c':
+    uuid: 08323523-8722-4e8b-b737-fbe0c9bdb01c
+    component_id: sdc.kura.profile-highlight
+    component_version: a4647778da0ecf9e
+    inputs:
+      heading: "Principal's Welcome"
+      highlight_text: 'At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive.'
+      text:
+        value: '<p>Our dedicated staff work closely with whānau to create meaningful learning experiences that build confidence, curiosity, and a love of learning. We look forward to welcoming you into our school community.</p>'
+        format: canvas_html_block
+      attribution: 'Jane Smith, Principal'
+      media_display: left
+  '0:media:0:a543365a-fd00-4fec-944b-cd35d521bd3d':
+    parent_uuid: 08323523-8722-4e8b-b737-fbe0c9bdb01c
+    slot: media
+    uuid: a543365a-fd00-4fec-944b-cd35d521bd3d
+    component_id: sdc.kura.image
+    component_version: d77451010df91d0e
+    inputs:
+      media:
+        target_id: '2'
+      size: '1:1'
+      radius: extra-large

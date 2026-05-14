@@ -1,0 +1,65 @@
+uuid: 5193af89-ac98-4d6d-979f-ed55214b61af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event.feeds_item
+    - field.field.node.event.field_content
+    - field.field.node.event.field_event_date
+    - field.field.node.event.field_ical_uid
+    - field.field.node.event.field_location
+    - node.type.event
+  module:
+    - smart_date
+    - text
+    - user
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_event_date:
+    type: smartdate_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+      format: default
+      force_chronological: false
+      add_classes: false
+      time_wrapper: true
+      localize: false
+      parts:
+        - start
+        - end
+      duration:
+        separator: ' | '
+        unit: ''
+        decimals: 2
+        suffix: h
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_location:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  feeds_item: true
+  field_ical_uid: true

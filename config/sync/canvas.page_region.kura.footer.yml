@@ -1,0 +1,92 @@
+uuid: 46e0e287-0c73-4b37-991d-96236fb29600
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.block.kura_branding_block
+    - canvas.component.block.system_menu_block.footer
+    - canvas.component.sdc.kura.footer-content
+    - canvas.component.sdc.kura.site-footer
+    - filter.format.canvas_html_block
+  module:
+    - options
+    - text
+  theme:
+    - kura
+id: kura.footer
+region: footer
+theme: kura
+component_tree:
+  '0:2a32f3d9-1710-4555-88a2-723f13876cb5':
+    uuid: 2a32f3d9-1710-4555-88a2-723f13876cb5
+    component_id: sdc.kura.site-footer
+    component_version: c1143e2b520f81ec
+    inputs:
+      columns: 4
+      copyright_name: 'Example School'
+      copyright_suffix: 'All rights reserved.'
+  '0:footer_first:0:f54f8642-28a3-4fe2-b1b4-023388939e96':
+    parent_uuid: 2a32f3d9-1710-4555-88a2-723f13876cb5
+    slot: footer_first
+    uuid: f54f8642-28a3-4fe2-b1b4-023388939e96
+    component_id: block.kura_branding_block
+    component_version: 189ecba77ea97d04
+    inputs:
+      label: 'Site branding'
+      label_display: '0'
+      use_site_logo: true
+      use_site_name: true
+      use_site_slogan: false
+      logo_variant: light
+  '0:footer_first:1:2d0399c2-5333-4ea8-9b97-76676051942e':
+    parent_uuid: 2a32f3d9-1710-4555-88a2-723f13876cb5
+    slot: footer_first
+    uuid: 2d0399c2-5333-4ea8-9b97-76676051942e
+    component_id: sdc.kura.footer-content
+    component_version: d7dd237f2347935c
+    inputs:
+      content:
+        value: '<p>A welcoming primary school in the heart of Wellington, Aotearoa New Zealand.</p>'
+        format: canvas_html_block
+  '0:footer_fourth:0:6c8a86e4-5d83-4197-8501-b2a95cccd1ca':
+    parent_uuid: 2a32f3d9-1710-4555-88a2-723f13876cb5
+    slot: footer_fourth
+    uuid: 6c8a86e4-5d83-4197-8501-b2a95cccd1ca
+    component_id: sdc.kura.footer-content
+    component_version: d7dd237f2347935c
+    inputs:
+      heading: 'School Hours'
+      content:
+        value: '<p>Mon - Fri:<br>8:55am - 3:00pm</p><p>Students are welcome at school from 8.15am.</p>'
+        format: canvas_html_block
+  '0:footer_second:0:79d3e520-b17b-428a-b909-10b4e4e70d59':
+    parent_uuid: 2a32f3d9-1710-4555-88a2-723f13876cb5
+    slot: footer_second
+    uuid: 79d3e520-b17b-428a-b909-10b4e4e70d59
+    component_id: sdc.kura.footer-content
+    component_version: d7dd237f2347935c
+    inputs:
+      heading: 'Quick Links'
+  '0:footer_second:1:85d44905-b8db-4f11-acb4-97708b974d17':
+    parent_uuid: 2a32f3d9-1710-4555-88a2-723f13876cb5
+    slot: footer_second
+    uuid: 85d44905-b8db-4f11-acb4-97708b974d17
+    component_id: block.system_menu_block.footer
+    component_version: 68bdb40e1ac48125
+    inputs:
+      label: Footer
+      label_display: '0'
+      level: 1
+      depth: null
+      expand_all_items: false
+  '0:footer_third:0:d305043b-2c7b-45e2-8bd2-09618d1f2c39':
+    parent_uuid: 2a32f3d9-1710-4555-88a2-723f13876cb5
+    slot: footer_third
+    uuid: d305043b-2c7b-45e2-8bd2-09618d1f2c39
+    component_id: sdc.kura.footer-content
+    component_version: d7dd237f2347935c
+    inputs:
+      heading: Contact
+      content:
+        value: '<p>123 Example View Road<br>Wellington 6021<br>New Zealand</p><p>(04) 555 0123</p><p><a href="mailto:office@exampleprimary.school.nz">office@exampleprimary.school.nz</a></p>'
+        format: canvas_html_block

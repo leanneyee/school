@@ -1,0 +1,58 @@
+uuid: f4c663c8-40ac-498c-b918-332b27de00aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.kura.card-key-info
+    - canvas.component.sdc.kura.section
+  module:
+    - options
+id: schoolhours
+label: 'School Hours'
+component_tree:
+  '0:61a1929b-253e-4b62-a1bd-9bc9994b5bc3':
+    uuid: 61a1929b-253e-4b62-a1bd-9bc9994b5bc3
+    component_id: sdc.kura.section
+    component_version: 2654ee5441e684e0
+    inputs:
+      width: 100%
+      columns: 33-33-33
+      mobile_columns: '1'
+      margin_block_start: '48'
+      margin_block_end: '48'
+      padding_block_start: '0'
+      padding_block_end: '0'
+      background_color: brand-cream
+      border_top: true
+      border_bottom: true
+      divide_columns: true
+      section_header: false
+      section_footer: false
+  '0:main_slot:0:5428720d-70d3-423d-bbdd-76ab418c9c57':
+    parent_uuid: 61a1929b-253e-4b62-a1bd-9bc9994b5bc3
+    slot: main_slot
+    uuid: 5428720d-70d3-423d-bbdd-76ab418c9c57
+    component_id: sdc.kura.card-key-info
+    component_version: 7f85d6f46fffb99d
+    inputs:
+      heading: 'School opens'
+      value: '8:15am'
+      subtext: 'Children should not be dropped off before this time, as they will be unsupervised.'
+  '0:main_slot:1:d90427ba-4ff3-4ed2-b5e0-445a875a4d53':
+    parent_uuid: 61a1929b-253e-4b62-a1bd-9bc9994b5bc3
+    slot: main_slot
+    uuid: d90427ba-4ff3-4ed2-b5e0-445a875a4d53
+    component_id: sdc.kura.card-key-info
+    component_version: 7f85d6f46fffb99d
+    inputs:
+      heading: 'Classes begin at'
+      value: '8:55am'
+  '0:main_slot:2:bd6a4f5c-dc30-4339-97d8-c7cf3762cad1':
+    parent_uuid: 61a1929b-253e-4b62-a1bd-9bc9994b5bc3
+    slot: main_slot
+    uuid: bd6a4f5c-dc30-4339-97d8-c7cf3762cad1
+    component_id: sdc.kura.card-key-info
+    component_version: 7f85d6f46fffb99d
+    inputs:
+      heading: 'School day ends'
+      value: 3.00pm

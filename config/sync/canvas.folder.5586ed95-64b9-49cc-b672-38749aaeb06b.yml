@@ -1,0 +1,9 @@
+uuid: 5586ed95-64b9-49cc-b672-38749aaeb06b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Kura Helper'
+configEntityTypeId: component
+weight: 0
+items:
+  - block.kura_branding_block

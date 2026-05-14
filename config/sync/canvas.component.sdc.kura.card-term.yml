@@ -1,0 +1,125 @@
+uuid: 2f1c72b4-2fd1-48b9-8009-fdaa93179560
+langcode: en
+status: true
+dependencies:
+  theme:
+    - kura
+active_version: 6fc17c61737af1ea
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        name:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Term One'
+          expression: ℹ︎string␟value
+        date_range:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Wed 4 Feb – Thu 2 Apr'
+          expression: ℹ︎string␟value
+        notes:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+        closed_dates:
+          required: false
+          field_type: string_long
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textarea
+          default_value:
+            -
+              value: |-
+                Fri 6 Feb | Waitangi Day
+                Mon 23 Mar | Maths Curriculum Day
+          expression: ℹ︎string_long␟value
+        holiday_break:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Fri 3 Apr – Sun 19 Apr'
+          expression: ℹ︎string␟value
+    fallback_metadata:
+      slot_definitions: {  }
+  907d2f87d20c2a44:
+    settings:
+      prop_field_definitions:
+        name:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Term One'
+          expression: ℹ︎string␟value
+        date_range:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Wed 4 Feb – Thu 2 Apr'
+          expression: ℹ︎string␟value
+        notes:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Teacher/Staff Only Days: Mon 2 & Tue 3 Feb'
+          expression: ℹ︎string␟value
+        closed_dates:
+          required: false
+          field_type: string_long
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textarea
+          default_value:
+            -
+              value: |-
+                Fri 6 Feb | Waitangi Day
+                Mon 23 Mar | Maths Curriculum Day
+          expression: ℹ︎string_long␟value
+        holiday_break:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Fri 3 Apr – Sun 19 Apr'
+          expression: ℹ︎string␟value
+    fallback_metadata:
+      slot_definitions: {  }
+label: 'Term card'
+id: sdc.kura.card-term
+provider: kura
+source: sdc
+source_local_id: 'kura:card-term'

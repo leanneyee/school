@@ -1,0 +1,73 @@
+uuid: 403cee21-dd6e-40a5-abc7-f3a40a7782a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.canvas_html_block
+  module:
+    - text
+  theme:
+    - kura
+active_version: d7dd237f2347935c
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        heading:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Footer Heading'
+          expression: ℹ︎string␟value
+        content:
+          required: false
+          field_type: text_long
+          field_storage_settings: {  }
+          field_instance_settings:
+            allowed_formats:
+              - canvas_html_block
+          field_widget: text_textarea
+          default_value:
+            -
+              value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>'
+              format: canvas_html_block
+          expression: ℹ︎text_long␟processed
+    fallback_metadata:
+      slot_definitions: {  }
+  c05cf989602f204b:
+    settings:
+      prop_field_definitions:
+        heading:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Quick Links'
+          expression: ℹ︎string␟value
+        content:
+          required: false
+          field_type: text_long
+          field_storage_settings: {  }
+          field_instance_settings:
+            allowed_formats:
+              - canvas_html_block
+          field_widget: text_textarea
+          default_value:
+            -
+              value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>'
+              format: canvas_html_block
+          expression: ℹ︎text_long␟processed
+    fallback_metadata:
+      slot_definitions: {  }
+label: 'Footer Content'
+id: sdc.kura.footer-content
+provider: kura
+source: sdc
+source_local_id: 'kura:footer-content'

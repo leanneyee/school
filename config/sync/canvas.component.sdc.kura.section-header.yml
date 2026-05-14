@@ -1,0 +1,134 @@
+uuid: e7c9c8d0-79e6-48a0-aeba-708c68de7e3e
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+  theme:
+    - kura
+active_version: b6d67f814d98b35b
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        cta_align:
+          required: true
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: bottom
+          expression: ℹ︎list_string␟value
+        eyebrow:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+    fallback_metadata:
+      slot_definitions:
+        heading:
+          title: Heading
+          description: 'Heading component. Displays on the left.'
+        cta:
+          title: 'Call to Action'
+          description: 'Button or link. Displays inline with the heading at wider container sizes.'
+  59b985a4cf8ca5da:
+    settings:
+      prop_field_definitions:
+        cta_align:
+          required: false
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: bottom
+          expression: ℹ︎list_string␟value
+        eyebrow:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+    fallback_metadata:
+      slot_definitions:
+        heading:
+          title: Heading
+          description: 'Heading component. Displays on the left.'
+        cta:
+          title: 'Call to Action'
+          description: 'Button or link. Displays inline with the heading at wider container sizes.'
+  80db5131d95b97d1:
+    settings:
+      prop_field_definitions:
+        eyebrow:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+    fallback_metadata:
+      slot_definitions:
+        heading:
+          title: Heading
+          description: 'Heading component. Displays on the left.'
+        cta:
+          title: 'Call to Action'
+          description: 'Button or link. Displays inline with the heading at wider container sizes.'
+  e74ebd1323dbd184:
+    settings:
+      prop_field_definitions:
+        eyebrow:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+    fallback_metadata:
+      slot_definitions:
+        heading:
+          title: Heading
+          description: 'Heading component. Displays on the left.'
+        cta:
+          title: CTA
+          description: 'Button or link. Displays inline with the heading at wider container sizes.'
+  64dd28cc6330661f:
+    settings:
+      prop_field_definitions:
+        eyebrow:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Our Learning'
+          expression: ℹ︎string␟value
+    fallback_metadata:
+      slot_definitions:
+        heading:
+          title: Heading
+          description: 'Heading component. Displays on the left.'
+        cta:
+          title: CTA
+          description: 'Button or link. Displays inline with the heading at wider container sizes.'
+label: 'Section Header'
+id: sdc.kura.section-header
+provider: kura
+source: sdc
+source_local_id: 'kura:section-header'

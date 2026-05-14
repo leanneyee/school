@@ -1,0 +1,65 @@
+uuid: 9c016601-4957-4d2d-bc39-b6d76e8e4876
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.block.kura_branding_block
+    - canvas.component.block.system_menu_block.main
+    - canvas.component.sdc.kura.button
+    - canvas.component.sdc.kura.navbar
+  module:
+    - link
+    - options
+  theme:
+    - kura
+id: kura.header
+region: header
+theme: kura
+component_tree:
+  '0:8830dfb6-ed78-4d35-b8bd-856f6fd2b021':
+    uuid: 8830dfb6-ed78-4d35-b8bd-856f6fd2b021
+    component_id: sdc.kura.navbar
+    component_version: 3149f199d66bbc29
+    inputs:
+      menu_align: center
+  '0:links:0:a7e633e4-6c69-4ca5-9b4c-1c5d77fd80f8':
+    parent_uuid: 8830dfb6-ed78-4d35-b8bd-856f6fd2b021
+    slot: links
+    uuid: a7e633e4-6c69-4ca5-9b4c-1c5d77fd80f8
+    component_id: sdc.kura.button
+    component_version: 51b602d62fcb3dbd
+    inputs:
+      variant: secondary
+      label: 'Enrol now'
+      href:
+        uri: 'internal:/'
+        options: {  }
+      size: small
+      mobile_width: false
+      icon_first: false
+      disabled: false
+  '0:logo:0:5c23ae66-5d6b-4df0-80fb-5287821d244c':
+    parent_uuid: 8830dfb6-ed78-4d35-b8bd-856f6fd2b021
+    slot: logo
+    uuid: 5c23ae66-5d6b-4df0-80fb-5287821d244c
+    component_id: block.kura_branding_block
+    component_version: 189ecba77ea97d04
+    inputs:
+      label: 'Site branding'
+      label_display: '0'
+      use_site_logo: true
+      use_site_name: true
+      use_site_slogan: true
+      logo_variant: dark
+  '0:navigation:0:9b0840b9-172c-497b-95eb-8b085ee4965e':
+    parent_uuid: 8830dfb6-ed78-4d35-b8bd-856f6fd2b021
+    slot: navigation
+    uuid: 9b0840b9-172c-497b-95eb-8b085ee4965e
+    component_id: block.system_menu_block.main
+    component_version: 023ff7ba63f80798
+    inputs:
+      label: 'Main navigation'
+      label_display: '0'
+      level: 1
+      depth: null
+      expand_all_items: true

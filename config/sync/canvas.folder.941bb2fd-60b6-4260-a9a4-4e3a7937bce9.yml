@@ -1,0 +1,18 @@
+uuid: 941bb2fd-60b6-4260-a9a4-4e3a7937bce9
+langcode: en
+status: true
+dependencies: {  }
+name: Kura
+configEntityTypeId: component
+weight: 0
+items:
+  - sdc.kura.card-key-info
+  - sdc.kura.card-term
+  - sdc.kura.footer-content
+  - sdc.kura.hero
+  - sdc.kura.page-header
+  - sdc.kura.profile-highlight
+  - sdc.kura.quick-link
+  - sdc.kura.section-header
+  - sdc.kura.site-footer
+  - sdc.kura.site-header

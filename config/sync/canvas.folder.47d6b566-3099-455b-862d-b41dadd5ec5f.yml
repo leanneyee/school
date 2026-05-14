@@ -1,0 +1,19 @@
+uuid: 47d6b566-3099-455b-862d-b41dadd5ec5f
+langcode: en
+status: true
+dependencies: {  }
+name: Card
+configEntityTypeId: component
+weight: 0
+items:
+  - js.profile_highlight
+  - sdc.kura.card
+  - sdc.kura.card-icon
+  - sdc.kura.card-logo
+  - sdc.kura.card-pricing
+  - sdc.kura.card-testimonial
+  - sdc.mercury.card
+  - sdc.mercury.card-icon
+  - sdc.mercury.card-logo
+  - sdc.mercury.card-pricing
+  - sdc.mercury.card-testimonial

@@ -1,0 +1,31 @@
+uuid: 93e259fe-9df6-4101-be8d-b93cdd8101df
+langcode: en
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.google_calendar_events
+    - field.storage.node.feeds_item
+    - node.type.event
+  module:
+    - feeds
+id: node.event.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: event
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings:
+    target_bundles:
+      google_calendar_events: google_calendar_events
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: feeds_item

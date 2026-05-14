@@ -5,3 +5,4 @@ hooks:
   post-start:
     - composer: install
     - composer: drupal:recipe-unpack
+    - exec: "grep -qF 'config_sync_directory' /var/www/html/web/sites/default/settings.php || printf '%s\\n' \"\\$settings['config_sync_directory'] = '../config/sync';\" >> /var/www/html/web/sites/default/settings.php"

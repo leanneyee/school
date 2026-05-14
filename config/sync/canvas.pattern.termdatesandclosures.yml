@@ -1,0 +1,99 @@
+uuid: e8f7c3aa-26ac-46a0-9872-e772b455b798
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.kura.card-term
+    - canvas.component.sdc.kura.heading
+    - canvas.component.sdc.kura.section
+    - canvas.component.sdc.kura.section-header
+  module:
+    - options
+id: termdatesandclosures
+label: 'Term Dates and Closures'
+component_tree:
+  '0:c4767b58-3f02-4ffc-a6a3-f7d79322d745':
+    uuid: c4767b58-3f02-4ffc-a6a3-f7d79322d745
+    component_id: sdc.kura.section
+    component_version: 2654ee5441e684e0
+    inputs:
+      width: 100%
+      columns: 25-25-25-25
+      mobile_columns: '1'
+      margin_block_start: '48'
+      margin_block_end: '48'
+      padding_block_start: '64'
+      padding_block_end: '64'
+      border_top: false
+      border_bottom: false
+      divide_columns: false
+      section_header: true
+      section_footer: false
+  '0:header_slot:0:003f3ff4-b1b1-41d5-86a5-94578f4c2b16':
+    parent_uuid: c4767b58-3f02-4ffc-a6a3-f7d79322d745
+    slot: header_slot
+    uuid: 003f3ff4-b1b1-41d5-86a5-94578f4c2b16
+    component_id: sdc.kura.section-header
+    component_version: e74ebd1323dbd184
+    inputs:
+      eyebrow: 'Plan Ahead'
+  '0:header_slot:0:heading:0:309a52ea-7830-4b7f-8628-0e7a1a76dfa8':
+    parent_uuid: 003f3ff4-b1b1-41d5-86a5-94578f4c2b16
+    slot: heading
+    uuid: 309a52ea-7830-4b7f-8628-0e7a1a76dfa8
+    component_id: sdc.kura.heading
+    component_version: fee1c60088ebfe2f
+    inputs:
+      heading_text: '2026 Term Dates and Closures'
+      level: 2
+      text_size: heading-responsive-5xl
+      text_color: default
+      align: left
+  '0:main_slot:0:f70a0999-1d15-48e0-a9e3-c684099c915e':
+    parent_uuid: c4767b58-3f02-4ffc-a6a3-f7d79322d745
+    slot: main_slot
+    uuid: f70a0999-1d15-48e0-a9e3-c684099c915e
+    component_id: sdc.kura.card-term
+    component_version: 6fc17c61737af1ea
+    inputs:
+      name: 'Term One'
+      date_range: 'Wed 4 Feb – Thu 2 Apr'
+      notes: 'Teacher/Staff Only Days: Mon 2 & Tue 3 Feb'
+      closed_dates: |
+        Fri 6 Feb | Waitangi Day
+        Mon 23 Mar | Maths Curriculum Day
+      holiday_break: 'Fri 3 Apr – Sun 19 Apr'
+  '0:main_slot:1:3b41d2ec-ec1b-420e-9e25-a0ce0cfe5370':
+    parent_uuid: c4767b58-3f02-4ffc-a6a3-f7d79322d745
+    slot: main_slot
+    uuid: 3b41d2ec-ec1b-420e-9e25-a0ce0cfe5370
+    component_id: sdc.kura.card-term
+    component_version: 6fc17c61737af1ea
+    inputs:
+      name: 'Term Two'
+      date_range: 'Mon 20 Apr – Fri 3 Jul'
+      closed_dates: |-
+        Mon 27 Apr | ANZAC Day observed
+        Mon 1 Jun | King’s Birthday
+      holiday_break: 'Sat 4 Apr – Sun 19 Jul'
+  '0:main_slot:2:f23e389f-084b-4a14-975b-c713f8b82f52':
+    parent_uuid: c4767b58-3f02-4ffc-a6a3-f7d79322d745
+    slot: main_slot
+    uuid: f23e389f-084b-4a14-975b-c713f8b82f52
+    component_id: sdc.kura.card-term
+    component_version: 6fc17c61737af1ea
+    inputs:
+      name: 'Term Three'
+      date_range: 'Mon 20 Jul – Fri 25 Sep'
+      closed_dates: 'Fri 7 Aug | Maths Curriculum Day'
+      holiday_break: 'Sat 26 Sep – Sun 11 Oct'
+  '0:main_slot:3:46cbe961-9ada-4bd0-b04f-2d3296ba3451':
+    parent_uuid: c4767b58-3f02-4ffc-a6a3-f7d79322d745
+    slot: main_slot
+    uuid: 46cbe961-9ada-4bd0-b04f-2d3296ba3451
+    component_id: sdc.kura.card-term
+    component_version: 6fc17c61737af1ea
+    inputs:
+      name: 'Term Four'
+      date_range: 'Mon 12 Oct – Wed 16 Dec'
+      closed_dates: 'Mon 26 Oct | Labour Day'

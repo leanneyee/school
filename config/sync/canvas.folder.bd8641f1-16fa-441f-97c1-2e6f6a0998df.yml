@@ -1,0 +1,26 @@
+uuid: bd8641f1-16fa-441f-97c1-2e6f6a0998df
+langcode: en
+status: true
+dependencies: {  }
+name: Base
+configEntityTypeId: component
+weight: 0
+items:
+  - sdc.kura.anchor
+  - sdc.kura.badge
+  - sdc.kura.blockquote
+  - sdc.kura.button
+  - sdc.kura.heading
+  - sdc.kura.icon
+  - sdc.kura.image
+  - sdc.kura.text
+  - sdc.kura.video
+  - sdc.mercury.anchor
+  - sdc.mercury.badge
+  - sdc.mercury.blockquote
+  - sdc.mercury.button
+  - sdc.mercury.heading
+  - sdc.mercury.icon
+  - sdc.mercury.image
+  - sdc.mercury.text
+  - sdc.mercury.video

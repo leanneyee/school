@@ -1,0 +1,91 @@
+uuid: 0901906c-862e-4d62-9b56-299d69447ba5
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+  theme:
+    - kura
+active_version: cde05d62c3a3523f
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        label:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: Enrol
+          expression: ℹ︎string␟value
+        url:
+          required: true
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /enrolment
+              options: {  }
+          expression: ℹ︎link␟url
+        icon:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: file-text
+          expression: ℹ︎string␟value
+    fallback_metadata:
+      slot_definitions: {  }
+  cde05d62c3a3523f:
+    settings:
+      prop_field_definitions:
+        label:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: Enrol
+          expression: ℹ︎string␟value
+        url:
+          required: true
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /enrolment
+              options: {  }
+          expression: ℹ︎link␟url
+        icon:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: file-text
+          expression: ℹ︎string␟value
+    fallback_metadata:
+      slot_definitions: {  }
+label: 'Quick Link'
+id: sdc.kura.quick-link
+provider: kura
+source: sdc
+source_local_id: 'kura:quick-link'

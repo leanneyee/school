@@ -1,0 +1,21 @@
+uuid: a24ab029-1e02-4748-a0e5-9c0406421a94
+langcode: en
+status: true
+dependencies:
+  theme:
+    - kura
+active_version: 6d6367123c15a82a
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions: {  }
+    fallback_metadata:
+      slot_definitions:
+        accordion_content:
+          title: 'Accordion content'
+          description: 'Only one of collapsible sections added can be open at a time.'
+label: 'Accordion container'
+id: sdc.kura.accordion-container
+provider: kura
+source: sdc
+source_local_id: 'kura:accordion-container'

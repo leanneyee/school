@@ -1,0 +1,48 @@
+uuid: d1fc54ed-c3e9-4986-bcb5-8e99e0b74ee5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.image.field_media_image
+    - field.field.media.svg_image.field_media_svg_image
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - media.type.svg_image
+  module:
+    - file
+    - media
+    - media_library
+  theme:
+    - kura
+active_version: 8f3e4b3773699820
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        media:
+          required: false
+          field_type: entity_reference
+          field_storage_settings:
+            target_type: media
+          field_instance_settings:
+            handler: 'default:media'
+            handler_settings:
+              target_bundles:
+                image: image
+                svg_image: svg_image
+          field_widget: media_library_widget
+          default_value: {  }
+          expression: 'ℹ︎entity_reference␟entity␜[␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}][␜entity:media:svg_image␝field_media_svg_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}]'
+    fallback_metadata:
+      slot_definitions:
+        breadcrumb:
+          title: Breadcrumb
+          description: 'Place a Breadcrumb block here.'
+        title:
+          title: Title
+          description: 'Place a Page title block here.'
+label: 'Page Header'
+id: sdc.kura.page-header
+provider: kura
+source: sdc
+source_local_id: 'kura:page-header'

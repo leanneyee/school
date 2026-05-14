@@ -1,0 +1,141 @@
+uuid: e8b4dadc-bdd6-4bf7-b3f2-eb49f4a135bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.kura.button
+    - canvas.component.sdc.kura.card
+    - canvas.component.sdc.kura.heading
+    - canvas.component.sdc.kura.section
+    - canvas.component.sdc.kura.section-header
+    - field.field.media.image.field_media_image
+    - field.field.media.svg_image.field_media_svg_image
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - media.type.svg_image
+  content:
+    - 'file:file:880240b0-aa0f-4193-82c1-18a9eedc126e'
+    - 'file:file:90b00848-09af-42fc-9258-59e03485e747'
+    - 'file:file:df294de3-465b-48a0-bba5-63c4974ed8df'
+    - 'media:image:0fc8b466-d4d4-48b8-9bd4-5a369d3c4461'
+    - 'media:image:11e43b46-af5b-49a1-b8c1-ed112a7d9273'
+    - 'media:image:32faed61-5711-446f-a1f7-fece923c6c25'
+  module:
+    - file
+    - link
+    - media
+    - options
+id: learningteams
+label: 'Learning Teams'
+component_tree:
+  '0:db7b5c53-3dd3-4428-a6a9-f75a3e09bb79':
+    uuid: db7b5c53-3dd3-4428-a6a9-f75a3e09bb79
+    component_id: sdc.kura.section
+    component_version: 2654ee5441e684e0
+    inputs:
+      width: 100%
+      columns: 33-33-33
+      mobile_columns: '1'
+      margin_block_start: '48'
+      margin_block_end: '48'
+      padding_block_start: '64'
+      padding_block_end: '64'
+      background_color: primary
+      border_top: true
+      border_bottom: true
+      divide_columns: true
+      section_header: true
+      section_footer: false
+  '0:header_slot:0:b0002d5f-dee7-4212-8460-17eaedf4da5f':
+    parent_uuid: db7b5c53-3dd3-4428-a6a9-f75a3e09bb79
+    slot: header_slot
+    uuid: b0002d5f-dee7-4212-8460-17eaedf4da5f
+    component_id: sdc.kura.section-header
+    component_version: e74ebd1323dbd184
+    inputs:
+      eyebrow: 'Our Learning'
+  '0:header_slot:0:cta:0:fa898711-bce8-4743-91f5-f0193515c980':
+    parent_uuid: b0002d5f-dee7-4212-8460-17eaedf4da5f
+    slot: cta
+    uuid: fa898711-bce8-4743-91f5-f0193515c980
+    component_id: sdc.kura.button
+    component_version: 51b602d62fcb3dbd
+    inputs:
+      variant: link-inverted
+      label: 'All learning teams'
+      size: medium
+      icon: arrow-right
+      mobile_width: false
+      icon_first: false
+      disabled: false
+  '0:header_slot:0:heading:0:c18c84d7-19c5-4680-a3c0-4097e1c31a84':
+    parent_uuid: b0002d5f-dee7-4212-8460-17eaedf4da5f
+    slot: heading
+    uuid: c18c84d7-19c5-4680-a3c0-4097e1c31a84
+    component_id: sdc.kura.heading
+    component_version: fee1c60088ebfe2f
+    inputs:
+      heading_text: 'Three teams, one whānau.'
+      level: 2
+      text_size: heading-responsive-5xl
+      text_color: default
+      align: left
+  '0:main_slot:0:f654a534-8849-4e0b-9de3-f154d0b6de9f':
+    parent_uuid: db7b5c53-3dd3-4428-a6a9-f75a3e09bb79
+    slot: main_slot
+    uuid: f654a534-8849-4e0b-9de3-f154d0b6de9f
+    component_id: sdc.kura.card
+    component_version: d46af63e2951cda2
+    inputs:
+      style: media_bg
+      orientation: vertical
+      heading_text: 'Team A'
+      level: 3
+      eyebrow_text: 'Years 0–2'
+      url:
+        uri: 'internal:/'
+        options: {  }
+      media:
+        target_id: '3'
+      text: 'Curiosity, play and the foundations of literacy and numeracy.'
+      is_text_centered: false
+  '0:main_slot:1:79ebf315-c314-4dcb-84c1-c7f1c3e77ca3':
+    parent_uuid: db7b5c53-3dd3-4428-a6a9-f75a3e09bb79
+    slot: main_slot
+    uuid: 79ebf315-c314-4dcb-84c1-c7f1c3e77ca3
+    component_id: sdc.kura.card
+    component_version: d46af63e2951cda2
+    inputs:
+      style: media_bg
+      orientation: vertical
+      background: default
+      heading_text: 'Team B'
+      level: 3
+      eyebrow_text: 'Years 3-4'
+      url:
+        uri: 'internal:/'
+        options: {  }
+      media:
+        target_id: '4'
+      text: 'Building independence and a love of learning.'
+      is_text_centered: false
+  '0:main_slot:2:c9c57957-7d9c-4e87-94be-600646004d33':
+    parent_uuid: db7b5c53-3dd3-4428-a6a9-f75a3e09bb79
+    slot: main_slot
+    uuid: c9c57957-7d9c-4e87-94be-600646004d33
+    component_id: sdc.kura.card
+    component_version: d46af63e2951cda2
+    inputs:
+      style: media_bg
+      orientation: vertical
+      background: default
+      heading_text: 'Team C'
+      level: 3
+      eyebrow_text: 'Years 5-6'
+      url:
+        uri: 'internal:/'
+        options: {  }
+      media:
+        target_id: '5'
+      text: 'Leadership, deeper inquiry and getting ready for intermediate.'
+      is_text_centered: false

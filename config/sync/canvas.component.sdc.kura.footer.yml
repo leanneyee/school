@@ -1,0 +1,59 @@
+uuid: 43fb584d-07df-4535-98fe-88fcbcbfd2f8
+langcode: en
+status: true
+dependencies:
+  theme:
+    - kura
+active_version: d696cea1796b650e
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        align:
+          required: false
+          field_type: boolean
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: boolean_checkbox
+          default_value:
+            -
+              value: true
+          expression: ℹ︎boolean␟value
+    fallback_metadata:
+      slot_definitions:
+        footer_first:
+          title: 'Branding & Social'
+        footer_last:
+          title: 'Call to action'
+        footer_utility_first:
+          title: 'Utility links'
+        footer_utility_last:
+          title: 'Copyright text'
+  d696cea1796b650e:
+    settings:
+      prop_field_definitions:
+        align:
+          required: false
+          field_type: boolean
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: boolean_checkbox
+          default_value:
+            -
+              value: true
+          expression: ℹ︎boolean␟value
+    fallback_metadata:
+      slot_definitions:
+        footer_first:
+          title: 'Branding & Social'
+        footer_last:
+          title: 'Call to action'
+        footer_utility_first:
+          title: 'Utility links'
+        footer_utility_last:
+          title: 'Copyright text'
+label: Footer
+id: sdc.kura.footer
+provider: kura
+source: sdc
+source_local_id: 'kura:footer'

@@ -1,0 +1,39 @@
+uuid: d20d2ccc-c244-46f4-9f91-a7d10ad0d470
+langcode: en
+status: true
+dependencies:
+  module:
+    - kura_helper
+active_version: 189ecba77ea97d04
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: kura_branding_block
+        label: 'Site branding'
+        label_display: '0'
+        provider: kura_helper
+        use_site_logo: true
+        use_site_name: true
+        use_site_slogan: true
+        logo_variant: dark
+    fallback_metadata:
+      slot_definitions: null
+  dc76698fd92b0079:
+    settings:
+      default_settings:
+        id: kura_branding_block
+        label: 'Site branding'
+        label_display: '0'
+        provider: kura_helper
+        use_site_logo: true
+        use_site_name: true
+        use_site_slogan: true
+        logo_variant: dark
+    fallback_metadata:
+      slot_definitions: null
+label: 'Site branding'
+id: block.kura_branding_block
+provider: kura_helper
+source: block
+source_local_id: kura_branding_block

@@ -1,0 +1,11 @@
+uuid: e3e54bfa-7504-425d-81df-83258d2f200f
+langcode: en
+status: true
+dependencies: {  }
+name: Event
+type: event
+description: 'Use <em>Event</em> to store calendar events imported from Google Calendar via iCal format.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

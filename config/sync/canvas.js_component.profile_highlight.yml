@@ -1,0 +1,165 @@
+uuid: 51efd020-3b39-40f5-b6a8-edbefd9de2ca
+langcode: en
+status: true
+dependencies: {  }
+machineName: profile_highlight
+name: 'Profile Highlight'
+required:
+  - imagePosition
+props:
+  name:
+    type: string
+    title: Name
+    examples:
+      - 'Sarah Williams'
+  role:
+    type: string
+    title: Role
+    examples:
+      - Principal
+  imagePosition:
+    type: string
+    enum:
+      - right
+      - left
+    'meta:enum':
+      right: Right
+      left: Left
+    title: 'Image Position'
+    examples:
+      - right
+slots:
+  image:
+    title: Image
+    examples:
+      - '<img src="https://images.unsplash.com/photo-1659355893982-cb1e87a8758a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBmZW1hbGUlMjBzY2hvb2wlMjBwcmluY2lwYWx8ZW58MXx8fHwxNzc1MDc3NjIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Sarah Williams" className="w-full h-full object-cover" />'
+  header:
+    title: Header
+    examples:
+      - |-
+        <h2 className="text-4xl sm:text-5xl text-gray-900 mb-3">
+          Principal's Welcome
+        </h2>
+  content:
+    title: Content
+    examples:
+      - |-
+        <>
+        <p>At Example Primary School, we are proud to provide a supportive and inclusive environment where every child is encouraged to thrive. Our dedicated staff work closely with whānau  to create meaningful learning experiences that build confidence, curiosity, and a  love of learning.</p>
+        <p>We look forward to welcoming you into our school community.</p>
+        </>
+js:
+  original: |
+    // See https://project.pages.drupalcode.org/canvas/ for documentation on how to build a code component
+
+    const Component = ({
+      header,
+      content,
+      name,
+      role,
+      image,
+      imagePosition
+    }) => {
+      return (
+         <section className="w-full bg-white py-12">
+          <div className="lg:max-w-8/10 mx-auto">
+            <div className={`grid md:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-center ${imagePosition === "left" ? "md:grid-cols-[auto_1fr]" : ""}`}>
+              {/* Text Content */}
+              <div className={`space-y-6 ${imagePosition === "left" ? "md:order-2" : ""}`}>
+                <div className="space-y-5">
+                  {header}
+                </div>
+                <div className="space-y-5 text-lg sm:text-xl text-gray-700 leading-relaxed">
+                  <div className="space-y-5">
+                    {content}
+                  </div>
+                  {name && (
+                    <p className="space-y-5">
+                      <strong>{name}</strong>
+                      {role && <><br />{role}</>}
+                    </p>
+                   )}
+                </div>
+              </div>
+
+              {/* Profile Photo - Circle */}
+              {image && (
+                <div className={imagePosition === "left" ? "md:order-1" : ""}>
+                  <div className="@container relative w-64 h-64 mx-auto rounded-full overflow-hidden shadow-xl ring-4 ring-blue-100">
+                    <div className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover">
+                      {image}
+                    </div>
+                  </div>
+                </div>
+               )}
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    export default Component;
+  compiled: |
+    import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+    // See https://project.pages.drupalcode.org/canvas/ for documentation on how to build a code component
+    const Component = ({ header, content, name, role, image, imagePosition })=>{
+        return /*#__PURE__*/ _jsx("section", {
+            className: "w-full bg-white py-12",
+            children: /*#__PURE__*/ _jsx("div", {
+                className: "lg:max-w-8/10 mx-auto",
+                children: /*#__PURE__*/ _jsxs("div", {
+                    className: `grid md:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-center ${imagePosition === "left" ? "md:grid-cols-[auto_1fr]" : ""}`,
+                    children: [
+                        /*#__PURE__*/ _jsxs("div", {
+                            className: `space-y-6 ${imagePosition === "left" ? "md:order-2" : ""}`,
+                            children: [
+                                /*#__PURE__*/ _jsx("div", {
+                                    className: "space-y-5",
+                                    children: header
+                                }),
+                                /*#__PURE__*/ _jsxs("div", {
+                                    className: "space-y-5 text-lg sm:text-xl text-gray-700 leading-relaxed",
+                                    children: [
+                                        /*#__PURE__*/ _jsx("div", {
+                                            className: "space-y-5",
+                                            children: content
+                                        }),
+                                        name && /*#__PURE__*/ _jsxs("p", {
+                                            className: "space-y-5",
+                                            children: [
+                                                /*#__PURE__*/ _jsx("strong", {
+                                                    children: name
+                                                }),
+                                                role && /*#__PURE__*/ _jsxs(_Fragment, {
+                                                    children: [
+                                                        /*#__PURE__*/ _jsx("br", {}),
+                                                        role
+                                                    ]
+                                                })
+                                            ]
+                                        })
+                                    ]
+                                })
+                            ]
+                        }),
+                        image && /*#__PURE__*/ _jsx("div", {
+                            className: imagePosition === "left" ? "md:order-1" : "",
+                            children: /*#__PURE__*/ _jsx("div", {
+                                className: "@container relative w-64 h-64 mx-auto rounded-full overflow-hidden shadow-xl ring-4 ring-blue-100",
+                                children: /*#__PURE__*/ _jsx("div", {
+                                    className: "w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover",
+                                    children: image
+                                })
+                            })
+                        })
+                    ]
+                })
+            })
+        });
+    };
+    export default Component;
+css:
+  original: ''
+  compiled: |
+    /*! tailwindcss v4.1.13 | MIT License | https://tailwindcss.com */
+dataDependencies: {  }

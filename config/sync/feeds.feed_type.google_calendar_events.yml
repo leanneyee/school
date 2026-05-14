@@ -1,0 +1,79 @@
+uuid: 2f303e56-a727-48e8-9f9a-dd0db564fd7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event.field_content
+    - field.field.node.event.field_event_date
+    - field.field.node.event.field_ical_uid
+    - node.type.event
+  module:
+    - feeds_ical
+    - node
+    - smart_date
+label: 'Google Calendar Events'
+id: google_calendar_events
+description: ''
+help: ''
+import_period: 21600
+import_period_per_feed: false
+fetcher: http
+fetcher_configuration:
+  auto_detect_feeds: false
+  use_pubsubhubbub: false
+  always_download: false
+  fallback_hub: ''
+  request_timeout: 30
+parser: feeds_ical
+parser_configuration:
+  filter_days_before: '0'
+  skip_recurrence: 0
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: event
+  langcode: en
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  skip_validation: false
+  skip_validation_types: {  }
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources: {  }
+mappings:
+  -
+    target: field_content
+    map:
+      value: description
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: title
+    map:
+      value: summary
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_ical_uid
+    map:
+      value: uid
+    settings: {  }
+    unique:
+      value: 1
+  -
+    target: field_event_date
+    map:
+      value: dtstart
+      end_value: dtend
+      rrule: ''
+      duration: ''
+      timezone: ''
+    settings:
+      language: null

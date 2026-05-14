@@ -1,0 +1,223 @@
+uuid: c90bb3f9-b518-48b5-9ce0-0f01786691d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.image.field_media_image
+    - field.field.media.svg_image.field_media_svg_image
+    - filter.format.canvas_html_block
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - media.type.svg_image
+  module:
+    - file
+    - media
+    - media_library
+    - options
+    - text
+  theme:
+    - kura
+active_version: c1143e2b520f81ec
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        columns:
+          required: false
+          field_type: list_integer
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: 4
+          expression: ℹ︎list_integer␟value
+        copyright_name:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Example School'
+          expression: ℹ︎string␟value
+        copyright_suffix:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'All rights reserved.'
+          expression: ℹ︎string␟value
+    fallback_metadata:
+      slot_definitions:
+        footer_first:
+          title: 'Column 1'
+          description: 'First footer column. Typically branding and a short description.'
+        footer_second:
+          title: 'Column 2'
+          description: 'Second footer column. Typically a heading and navigation links.'
+        footer_third:
+          title: 'Column 3'
+          description: 'Third footer column. Only rendered when columns is 3 or 4.'
+        footer_fourth:
+          title: 'Column 4'
+          description: 'Fourth footer column. Only rendered when columns is 4.'
+  64ebd33ec4a3d36b:
+    settings:
+      prop_field_definitions:
+        description:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Inspiring students to reach their full potential.'
+          expression: ℹ︎string␟value
+        contact:
+          required: false
+          field_type: text_long
+          field_storage_settings: {  }
+          field_instance_settings:
+            allowed_formats:
+              - canvas_html_block
+          field_widget: text_textarea
+          default_value:
+            -
+              value: '<p>123 Example Street<br>Wellington 6011</p>'
+              format: canvas_html_block
+          expression: ℹ︎text_long␟processed
+        school_hours:
+          required: false
+          field_type: text_long
+          field_storage_settings: {  }
+          field_instance_settings:
+            allowed_formats:
+              - canvas_html_block
+          field_widget: text_textarea
+          default_value:
+            -
+              value: '<p>Monday – Friday<br>8:30am – 3:00pm</p>'
+              format: canvas_html_block
+          expression: ℹ︎text_long␟processed
+        copyright_name:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Wellington Primary School'
+          expression: ℹ︎string␟value
+        copyright_suffix:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'All rights reserved.'
+          expression: ℹ︎string␟value
+    fallback_metadata:
+      slot_definitions:
+        branding:
+          title: Branding
+          description: 'Site branding block or logo component (column 1).'
+        navigation:
+          title: Navigation
+          description: 'Footer menu block or navigation component (column 2).'
+  91beeed5231bc95b:
+    settings:
+      prop_field_definitions:
+        site_name:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Wellington Primary School'
+          expression: ℹ︎string␟value
+        description:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+        copyright_name:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Wellington Primary School'
+          expression: ℹ︎string␟value
+        address_lines:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+        phone:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+        email:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+        hours_lines:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value: null
+          expression: ℹ︎string␟value
+        logo:
+          required: false
+          field_type: entity_reference
+          field_storage_settings:
+            target_type: media
+          field_instance_settings:
+            handler: 'default:media'
+            handler_settings:
+              target_bundles:
+                image: image
+                svg_image: svg_image
+          field_widget: media_library_widget
+          default_value: {  }
+          expression: 'ℹ︎entity_reference␟entity␜[␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}][␜entity:media:svg_image␝field_media_svg_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}]'
+    fallback_metadata:
+      slot_definitions:
+        footer_menu:
+          title: 'Footer menu'
+          description: 'Rendered Drupal footer menu block output.'
+label: 'Site Footer'
+id: sdc.kura.site-footer
+provider: kura
+source: sdc
+source_local_id: 'kura:site-footer'

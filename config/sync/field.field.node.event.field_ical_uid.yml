@@ -1,0 +1,19 @@
+uuid: 2e00649a-216a-49de-9f17-f9eeb2c574ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ical_uid
+    - node.type.event
+id: node.event.field_ical_uid
+field_name: field_ical_uid
+entity_type: node
+bundle: event
+label: 'iCal UID'
+description: 'Unique identifier from Google Calendar to prevent duplicate imports (maps to iCal UID)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
