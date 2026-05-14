@@ -1,0 +1,33 @@
+{#
+  Individual event row for the Upcoming Events block.
+
+  Date logic using raw entity values:
+  - iCal all-day single events store end as the NEXT day (exclusive DTEND).
+    A difference of exactly 1 day (86400s) means a single all-day event → show start only.
+  - A difference > 1 day means a genuine multi-day event → show start – (end minus 1 day).
+  - Timed events (time ≠ 00:00:00) → show start only.
+#}
+{% set ev = row._entity %}
+{% set start_ts = ev.field_event_date.0.value|date('U') %}
+{% set end_ts   = ev.field_event_date.0.end_value|date('U') %}
+{% set diff     = end_ts - start_ts %}
+{% set all_day  = ev.field_event_date.0.value|date('His') == '000000' %}
+
+{% if all_day and diff > 86400 %}
+  {% set date_display = ev.field_event_date.0.value|date('j M') ~ ' – ' ~ (end_ts - 86400)|date('j M Y') %}
+{% else %}
+  {% set date_display = ev.field_event_date.0.value|date('j M Y') %}
+{% endif %}
+
+<li>
+  <div class="group grid grid-cols-12 items-baseline gap-4 py-5 transition">
+    <span class="col-span-12 mb-0 text-xs font-semibold uppercase tracking-widest text-muted-foreground sm:col-span-2">
+      {{- date_display -}}
+    </span>
+    <div class="col-span-12 sm:col-span-10">
+      <h3 class="mb-0 text-lg font-semibold transition group-hover:text-primary">
+        {{- fields.title.content -}}
+      </h3>
+    </div>
+  </div>
+</li>

@@ -1,0 +1,29 @@
+{#
+  Upcoming Events block — homepage section.
+  Two-column layout: heading + CTA on the left, events list on the right.
+  The block is hidden automatically when the view returns no results
+  (block_hide_empty is set on the block display).
+#}
+{% if rows %}
+  <section class="cq-full border-t border-border py-10 md:py-13 xl:py-16">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="grid gap-8 md:grid-cols-12 md:gap-12">
+
+        <div class="md:col-span-4">
+          <p class="mb-0 text-xs font-semibold uppercase tracking-[0.25em] text-brand-leaf">Upcoming Events</p>
+          <h2 class="mt-3 text-left text-inherit heading-responsive-5xl">What's on</h2>
+          <div class="[&_a]:text-sm [&_a]:font-semibold [&_a]:uppercase [&_a]:tracking-wider [&_a]:text-primary [&_a]:hover:underline">
+            {{ header }}
+          </div>
+        </div>
+
+        <div class="md:col-span-8">
+          <ul class="divide-y divide-border border-y border-border list-none p-0">
+            {{ rows }}
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+{% endif %}
