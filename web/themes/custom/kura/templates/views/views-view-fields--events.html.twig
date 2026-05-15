@@ -20,7 +20,7 @@
   {% if ev.field_event_date.0.value|date('Ymd') == ev.field_event_date.0.end_value|date('Ymd') %}
     {% set date_display = ev.field_event_date.0.value|date('j M Y, g:ia') ~ ' – ' ~ ev.field_event_date.0.end_value|date('g:ia') %}
   {% else %}
-    {% set date_display = ev.field_event_date.0.value|date('j M, g:ia') ~ ' – ' ~ ev.field_event_date.0.end_value|date('j M Y, g:ia') %}
+    {% set date_display = ev.field_event_date.0.value|date('j M Y, g:ia') ~ ' – ' ~ ev.field_event_date.0.end_value|date('j M Y, g:ia') %}
   {% endif %}
 {% else %}
   {% set date_display = ev.field_event_date.0.value|date('j M Y') %}
