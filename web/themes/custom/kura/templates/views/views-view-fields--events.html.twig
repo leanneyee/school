@@ -15,15 +15,15 @@
 
 {# Human-readable display #}
 {% if all_day and diff > 86400 %}
-  {% set date_display = ev.field_event_date.0.value|date('j M') ~ ' – ' ~ (end_ts - 86400)|date('j M Y') %}
+  {% set date_display = ev.field_event_date.0.value|date('D j M') ~ ' – ' ~ (end_ts - 86400)|date('D j M Y') %}
 {% elseif not all_day %}
   {% if ev.field_event_date.0.value|date('Ymd') == ev.field_event_date.0.end_value|date('Ymd') %}
-    {% set date_display = ev.field_event_date.0.value|date('j M Y, g:ia') ~ ' – ' ~ ev.field_event_date.0.end_value|date('g:ia') %}
+    {% set date_display = ev.field_event_date.0.value|date('D j M Y, g:ia') ~ ' – ' ~ ev.field_event_date.0.end_value|date('g:ia') %}
   {% else %}
-    {% set date_display = ev.field_event_date.0.value|date('j M Y, g:ia') ~ ' – ' ~ ev.field_event_date.0.end_value|date('j M Y, g:ia') %}
+    {% set date_display = ev.field_event_date.0.value|date('D j M Y, g:ia') ~ ' – ' ~ ev.field_event_date.0.end_value|date('D j M Y, g:ia') %}
   {% endif %}
 {% else %}
-  {% set date_display = ev.field_event_date.0.value|date('j M Y') %}
+  {% set date_display = ev.field_event_date.0.value|date('D j M Y') %}
 {% endif %}
 
 {# Machine-readable datetime attributes for <time> #}
