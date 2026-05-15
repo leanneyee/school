@@ -22,7 +22,6 @@
     ],
     "require": {
         "composer/composer": "^2.8",
-        "pantheon-upstreams/upstream-configuration": "dev-main",
         "composer/installers": "^2.3",
         "drupal/ai": "^1.2.6",
         "drupal/ai_agents": "^1.2",
@@ -110,7 +109,9 @@
         "drupal/views_infinite_scroll": "^2.0.3",
         "drupal/webform": "^6.3.0-beta8",
         "drupal/yoast_seo": "^2.2.0",
-        "league/commonmark": "^2.4"
+        "league/commonmark": "^2.4",
+        "pantheon-systems/drupal-integrations": "^11",
+        "pantheon-upstreams/upstream-configuration": "dev-main"
     },
     "require-dev": {
         "drush/drush": "^13.7"
@@ -143,10 +144,12 @@
                 "web-root": "web/"
             },
             "file-mapping": {
-                "[web-root]/example.gitignore": false
+                "[web-root]/example.gitignore": false,
+                "[web-root]/sites/default/settings.pantheon.php": "assets/settings.pantheon.php"
             },
             "allowed-packages": [
-                "drupal/drupal_cms_seo_tools"
+                "drupal/drupal_cms_seo_tools",
+                "pantheon-systems/drupal-integrations"
             ]
         },
         "installer-paths": {
