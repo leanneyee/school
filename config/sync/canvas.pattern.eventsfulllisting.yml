@@ -1,0 +1,133 @@
+uuid: 30127f34-56c1-4471-a379-1169a929d64f
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.block.views_block.events-listing
+    - canvas.component.sdc.kura.button
+    - canvas.component.sdc.kura.heading
+    - canvas.component.sdc.kura.section
+    - canvas.component.sdc.kura.section-header
+    - canvas.component.sdc.kura.text
+    - filter.format.canvas_html_block
+  module:
+    - link
+    - options
+    - text
+id: eventsfulllisting
+label: 'Events - Full Listing'
+component_tree:
+  '0:8692f105-de18-435e-ae23-f517c21ef326':
+    uuid: 8692f105-de18-435e-ae23-f517c21ef326
+    component_id: sdc.kura.section
+    component_version: 2654ee5441e684e0
+    inputs:
+      width: 100%
+      columns: '100'
+      mobile_columns: '1'
+      margin_block_start: '48'
+      margin_block_end: '48'
+      padding_block_start: '32'
+      padding_block_end: '0'
+      border_top: false
+      border_bottom: false
+      divide_columns: false
+      section_header: false
+      section_footer: false
+  '0:main_slot:0:d0a23f87-c88f-48c6-95e3-43b46b46a1ad':
+    parent_uuid: 8692f105-de18-435e-ae23-f517c21ef326
+    slot: main_slot
+    uuid: d0a23f87-c88f-48c6-95e3-43b46b46a1ad
+    component_id: sdc.kura.section
+    component_version: 2654ee5441e684e0
+    inputs:
+      width: 100%
+      columns: 33-67
+      mobile_columns: '1'
+      margin_block_start: '0'
+      margin_block_end: '48'
+      padding_block_start: '0'
+      padding_block_end: '64'
+      border_top: false
+      border_bottom: false
+      divide_columns: false
+      section_header: false
+      section_footer: false
+  '0:main_slot:0:main_slot:0:64989fb3-5598-4146-a8eb-3cee820f6862':
+    parent_uuid: d0a23f87-c88f-48c6-95e3-43b46b46a1ad
+    slot: main_slot
+    uuid: 64989fb3-5598-4146-a8eb-3cee820f6862
+    component_id: sdc.kura.section-header
+    component_version: f2fbace831b9ee5a
+    inputs:
+      cta_align: bottom
+      cta_stack: true
+  '0:main_slot:0:main_slot:0:cta:0:ccc326a1-3040-4b79-92fe-c871123a5d71':
+    parent_uuid: 64989fb3-5598-4146-a8eb-3cee820f6862
+    slot: cta
+    uuid: ccc326a1-3040-4b79-92fe-c871123a5d71
+    component_id: sdc.kura.button
+    component_version: 51b602d62fcb3dbd
+    inputs:
+      variant: secondary
+      label: 'Add to Outlook/Apple Calendar'
+      href:
+        uri: 'https://calendar.google.com/calendar/ical/c_1cb5ee9bc2c621b0005a34b102a134dcf9d90534dbc8f38b25d6f89e23f209b0%40group.calendar.google.com/public/basic.ics'
+        options: {  }
+      size: medium
+      icon: calendar
+      mobile_width: false
+      icon_first: true
+      disabled: false
+  '0:main_slot:0:main_slot:0:cta:1:727c3b64-9e7f-476e-b503-53fc77665064':
+    parent_uuid: 64989fb3-5598-4146-a8eb-3cee820f6862
+    slot: cta
+    uuid: 727c3b64-9e7f-476e-b503-53fc77665064
+    component_id: sdc.kura.button
+    component_version: 51b602d62fcb3dbd
+    inputs:
+      variant: secondary
+      label: 'Add to Google Calendar'
+      href:
+        uri: 'https://calendar.google.com/calendar/r?cid=c_1cb5ee9bc2c621b0005a34b102a134dcf9d90534dbc8f38b25d6f89e23f209b0@group.calendar.google.com'
+        options: {  }
+      size: medium
+      icon: calendar
+      mobile_width: false
+      icon_first: true
+      disabled: false
+  '0:main_slot:0:main_slot:0:heading:0:c4397845-614d-4a86-8dc7-d3688fe511ff':
+    parent_uuid: 64989fb3-5598-4146-a8eb-3cee820f6862
+    slot: heading
+    uuid: c4397845-614d-4a86-8dc7-d3688fe511ff
+    component_id: sdc.kura.heading
+    component_version: f5e12742e6408de9
+    inputs:
+      heading_text: 'All Upcoming Events'
+      level: 2
+      text_size: heading-responsive-3xl
+      text_color: default
+      align: left
+  '0:main_slot:0:main_slot:0:heading:1:3a6ad83a-cf49-45ed-af8c-a4956e65e43a':
+    parent_uuid: 64989fb3-5598-4146-a8eb-3cee820f6862
+    slot: heading
+    uuid: 3a6ad83a-cf49-45ed-af8c-a4956e65e43a
+    component_id: sdc.kura.text
+    component_version: 16c79c28a4108f9b
+    inputs:
+      text:
+        value: '<p>Stay up to date with our school events, activities, and important dates.</p>'
+        format: canvas_html_block
+      text_size: text-xs
+      text_color: default
+  '0:main_slot:0:main_slot:1:2cef089f-41ff-4448-a7d2-e9fefc62bc26':
+    parent_uuid: d0a23f87-c88f-48c6-95e3-43b46b46a1ad
+    slot: main_slot
+    uuid: 2cef089f-41ff-4448-a7d2-e9fefc62bc26
+    component_id: block.views_block.events-listing
+    component_version: 3fd7615b6c72bd9e
+    inputs:
+      label: 'Events: Listing'
+      label_display: '0'
+      views_label: ''
+      items_per_page: null

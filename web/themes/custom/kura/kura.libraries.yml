@@ -13,6 +13,14 @@ global:
       src/theme.css:
         preprocess: false
 
+events-scroll:
+  version: VERSION
+  js:
+    lib/events-scroll.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
 messages:
   version: VERSION
   js:

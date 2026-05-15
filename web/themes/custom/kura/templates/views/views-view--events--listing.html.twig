@@ -1,0 +1,46 @@
+{{ attach_library('kura/events-scroll') }}
+{#
+  Events listing display — scrollable panel within a Canvas section grid.
+  The section-header component sits alongside this in the left column.
+  On mobile the height constraint is lifted and the list flows naturally.
+#}
+{% if rows %}
+
+  <section
+    tabindex="0"
+    aria-label="{{ 'Events'|t }}"
+    class="scroll-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:rounded-sm
+           md:overflow-y-auto md:max-h-128
+           [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent
+           [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border"
+    data-events-scroll
+  >
+    {# Top fade: sticky to top of scroll viewport, revealed after scrolling down #}
+    <div
+      class="md:sticky top-0 z-10 h-20 md:-mb-20 bg-linear-to-b from-background to-transparent pointer-events-none opacity-0 transition-opacity duration-300"
+      aria-hidden="true"
+      data-events-scroll-top-fade
+    ></div>
+
+    <ul class="divide-y divide-border border-y border-border list-none p-0 m-0 lg:mx-8">
+      {{ rows }}
+    </ul>
+
+    {# Bottom fade: sticky to bottom of scroll viewport, hidden when fully scrolled #}
+    <div
+      class="md:sticky bottom-0 z-10 h-20 md:-mt-20 bg-linear-to-t from-background to-transparent pointer-events-none transition-opacity duration-300"
+      aria-hidden="true"
+      data-events-scroll-fade
+    ></div>
+
+  </section>
+
+  {% if pager %}
+    <div class="mt-4">{{ pager }}</div>
+  {% endif %}
+
+{% elseif empty %}
+  <div class="rounded-lg border border-dashed border-border bg-secondary/30 px-6 py-10 text-center font-semibold text-foreground">
+    {{ empty }}
+  </div>
+{% endif %}

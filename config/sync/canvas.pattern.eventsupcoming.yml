@@ -1,0 +1,132 @@
+uuid: 9adb6a4a-50f0-4400-a71d-5fcfd99e61c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.block.views_block.events-upcoming
+    - canvas.component.sdc.kura.button
+    - canvas.component.sdc.kura.heading
+    - canvas.component.sdc.kura.section
+    - canvas.component.sdc.kura.section-header
+    - canvas.component.sdc.kura.text
+    - filter.format.canvas_html_block
+  module:
+    - link
+    - options
+    - text
+id: eventsupcoming
+label: 'Events - Upcoming'
+component_tree:
+  '0:c08b1079-8143-418f-a32f-123f91d7a87d':
+    uuid: c08b1079-8143-418f-a32f-123f91d7a87d
+    component_id: sdc.kura.section
+    component_version: 2654ee5441e684e0
+    inputs:
+      width: 100%
+      columns: 50-50
+      mobile_columns: '1'
+      margin_block_start: '20'
+      margin_block_end: '48'
+      padding_block_start: '64'
+      padding_block_end: '64'
+      border_top: true
+      border_bottom: false
+      divide_columns: false
+      section_header: false
+      section_footer: false
+  '0:main_slot:0:0edf23ca-ca38-472c-9895-ba65d6c7c1ab':
+    parent_uuid: c08b1079-8143-418f-a32f-123f91d7a87d
+    slot: main_slot
+    uuid: 0edf23ca-ca38-472c-9895-ba65d6c7c1ab
+    component_id: sdc.kura.section-header
+    component_version: f2fbace831b9ee5a
+    inputs:
+      cta_align: bottom
+      cta_stack: true
+      eyebrow: "What's On"
+  '0:main_slot:0:cta:0:fee10eff-f70d-4797-9e65-96b0d18fca92':
+    parent_uuid: 0edf23ca-ca38-472c-9895-ba65d6c7c1ab
+    slot: cta
+    uuid: fee10eff-f70d-4797-9e65-96b0d18fca92
+    component_id: sdc.kura.button
+    component_version: 51b602d62fcb3dbd
+    inputs:
+      variant: link
+      label: 'View all events'
+      href:
+        uri: 'entity:node/20'
+        options: {  }
+      size: medium
+      icon: arrow-right
+      mobile_width: false
+      icon_first: false
+      disabled: false
+  '0:main_slot:0:cta:1:c7244822-f043-4aee-8be9-d19ffd7280e9':
+    parent_uuid: 0edf23ca-ca38-472c-9895-ba65d6c7c1ab
+    slot: cta
+    uuid: c7244822-f043-4aee-8be9-d19ffd7280e9
+    component_id: sdc.kura.button
+    component_version: 51b602d62fcb3dbd
+    inputs:
+      variant: secondary
+      label: 'Add to Outlook/Apple Calendar'
+      href:
+        uri: 'https://calendar.google.com/calendar/ical/c_1cb5ee9bc2c621b0005a34b102a134dcf9d90534dbc8f38b25d6f89e23f209b0%40group.calendar.google.com/public/basic.ics'
+        options: {  }
+      size: medium
+      icon: calendar
+      mobile_width: false
+      icon_first: true
+      disabled: false
+  '0:main_slot:0:cta:2:6ec12fa9-494f-406b-96e0-9e451f63ef11':
+    parent_uuid: 0edf23ca-ca38-472c-9895-ba65d6c7c1ab
+    slot: cta
+    uuid: 6ec12fa9-494f-406b-96e0-9e451f63ef11
+    component_id: sdc.kura.button
+    component_version: 51b602d62fcb3dbd
+    inputs:
+      variant: secondary
+      label: 'Add to Google Calendar'
+      href:
+        uri: 'https://calendar.google.com/calendar/r?cid=c_1cb5ee9bc2c621b0005a34b102a134dcf9d90534dbc8f38b25d6f89e23f209b0@group.calendar.google.com'
+        options: {  }
+      size: medium
+      icon: calendar
+      mobile_width: false
+      icon_first: true
+      disabled: false
+  '0:main_slot:0:heading:0:872bd198-2413-4089-b448-622b09391f25':
+    parent_uuid: 0edf23ca-ca38-472c-9895-ba65d6c7c1ab
+    slot: heading
+    uuid: 872bd198-2413-4089-b448-622b09391f25
+    component_id: sdc.kura.heading
+    component_version: f5e12742e6408de9
+    inputs:
+      heading_text: 'Upcoming Events'
+      level: 2
+      text_size: heading-responsive-5xl
+      text_color: default
+      align: left
+  '0:main_slot:0:heading:1:cc1360c5-b6d7-4529-a8fe-dbd07aac47b7':
+    parent_uuid: 0edf23ca-ca38-472c-9895-ba65d6c7c1ab
+    slot: heading
+    uuid: cc1360c5-b6d7-4529-a8fe-dbd07aac47b7
+    component_id: sdc.kura.text
+    component_version: 16c79c28a4108f9b
+    inputs:
+      text:
+        value: '<p>Stay up to date with our school events, activities, and important dates.</p>'
+        format: canvas_html_block
+      text_size: text-xs
+      text_color: default
+  '0:main_slot:1:9f58db42-a39f-4ca9-80ad-73ec3b238ced':
+    parent_uuid: c08b1079-8143-418f-a32f-123f91d7a87d
+    slot: main_slot
+    uuid: 9f58db42-a39f-4ca9-80ad-73ec3b238ced
+    component_id: block.views_block.events-upcoming
+    component_version: 1e970bdb9c28cc1a
+    inputs:
+      label: Events
+      label_display: '0'
+      views_label: ''
+      items_per_page: 5
