@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40ab876fbd4ba9e75d46b509c863ed38",
+    "content-hash": "6c6236deb54ba20445f4cec7f55f6ab2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8945,6 +8945,22 @@
             "time": "2026-03-17T20:53:51+00:00"
         },
         {
+            "name": "pantheon-upstreams/upstream-configuration",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "upstream-configuration",
+                "reference": "8f0ed84bdee567675c8e41c5ce8c993f71899fa5"
+            },
+            "type": "project",
+            "extra": {
+                "_README": "To make a custom upstream, clone this repository and add any dependencies to be provided by this upstream to this composer.json file. Leave the root-level composer.json file for the exclusive use of each individual site; do not modify it after your custom upstream has been published. See https://pantheon.io/docs/create-custom-upstream for more information."
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "paragonie/sodium_compat",
             "version": "v2.5.0",
             "source": {
@@ -14763,7 +14779,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "drupal/webform": 10
+        "drupal/webform": 10,
+        "pantheon-upstreams/upstream-configuration": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
